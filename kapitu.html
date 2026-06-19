@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TBC-Care | Registrasi Kapitu</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styleheader.css">
+  <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-container">
+
+    <div class="nav-brand">
+      <img src="logo.jpeg" alt="Logo TBC" class="nav-logo" style="height:50px;">
+    </div>
+
+    <div class="nav-links">
+     <a href="LPumum.html" class="nav-item">Beranda</a>
+          <a href="Untitled-1.html" class="nav-item">Edukasi</a>
+          <a href="loginsignin.html" class="btn-login">Login / Daftar</a>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- ================= FORM REGISTRASI KAPITU ================= -->
+<main class="form-section">
+
+  <form class="user-form" action="register_kapitu.php" method="POST">
+
+<div class="form-group">
+<label>Nama Lengkap</label>
+<input type="text" name="nama" placeholder="Masukkan nama lengkap" required>
+</div>
+
+<div class="form-row">
+
+<div class="form-group">
+<label>Tempat Lahir</label>
+<input type="text" name="tempat_lahir" placeholder="Contoh: Depok">
+</div>
+
+<div class="form-group">
+<label>Tanggal Lahir</label>
+<input type="date" name="tanggal_lahir">
+</div>
+
+</div>
+
+<div class="form-group">
+<label>NIK</label>
+<input type="text" name="nik" maxlength="16">
+</div>
+
+<div class="form-group">
+<label>No Telepon</label>
+<input type="tel" name="telepon">
+</div>
+
+<div class="form-group">
+<label>Email</label>
+<input type="email" name="email">
+</div>
+
+<div class="form-group">
+<label>Alamat</label>
+<textarea name="alamat"></textarea>
+</div>
+
+<div class="form-group">
+<label>Kecamatan</label>
+<select name="kecamatan">
+
+<option value="">Pilih Kecamatan</option>
+<option>Beji</option>
+<option>Pancoran Mas</option>
+<option>Cipayung</option>
+<option>Sukmajaya</option>
+<option>Cilodong</option>
+<option>Limo</option>
+<option>Cinere</option>
+<option>Cimanggis</option>
+<option>Tapos</option>
+<option>Sawangan</option>
+<option>Bojongsari</option>
+
+</select>
+</div>
+
+<div class="form-group">
+<label>Kelurahan</label>
+<input type="text" name="kelurahan" placeholder="Masukkan kelurahan">
+</div>
+
+<div class="form-group">
+<label>Jenis Kelamin</label>
+<select name="gender">
+<option value="">Pilih Jenis Kelamin</option>
+<option>Laki-laki</option>
+<option>Perempuan</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Password</label>
+<input type="password" name="password">
+</div>
+<!-- Tombol -->
+      <a href="passkapitu.html" type="submit" class="btn-submit">
+        Daftar
+      </a>
+
+</form>
+      
+
+    </form>
+
+  </div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+
+  <div class="footer-container">
+
+    <div>
+      <img src="LogoPD.png" alt="PeduliTBDepok Logo" class="footer-logo">
+      <p class="footer-desc">
+        Membangun ekosistem kesehatan digital yang inklusif untuk masa depan Indonesia tanpa TBC.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="footer-title-small">Navigasi</h4>
+      <ul class="footer-links">
+        <li><a href="#">Pusat Bantuan</a></li>
+        <li><a href="#">Privasi & Data</a></li>
+        <li><a href="#">Kerja Sama Instansi</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-title-small">Kontak Darurat</h4>
+      <p class="footer-contact">
+        <i class="fa-solid fa-phone"></i> Hotline TBC: 088806474921
+      </p>
+      <p class="footer-contact">
+        <i class="fa-solid fa-envelope"></i> faridayenasih@mail.ugm.ac.id
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-content">
+    © 2026 PeduliTBDepok Platform. Seluruh Hak Cipta Dilindungi.
+    </div>
+  </div>
+
+</footer>
+
+<script>
+const dataKelurahan = {
+
+beji: [
+"Beji",
+"Beji Timur",
+"Kemiri Muka",
+"Kukusan",
+"Pondok Cina",
+"Tanah Baru"
+],
+
+pancoranmas: [
+"Pancoran Mas",
+"Depok",
+"Depok Jaya",
+"Mampang",
+"Rangkapan Jaya",
+"Rangkapan Jaya Baru"
+],
+
+cipayung: [
+"Cipayung",
+"Cipayung Jaya",
+"Bojong Pondok Terong",
+"Ratu Jaya",
+"Pondok Jaya"
+],
+
+sukmajaya: [
+"Sukmajaya",
+"Mekarjaya",
+"Bakti Jaya",
+"Abadijaya",
+"Tirtajaya",
+"Cisalak"
+],
+
+cilodong: [
+"Cilodong",
+"Jatimulya",
+"Kalibaru",
+"Kalimulya",
+"Sukamaju",
+"Sukamaju Baru"
+],
+
+limo: [
+"Limo",
+"Krukut",
+"Grogol",
+"Meruyung"
+],
+
+cinere: [
+"Cinere",
+"Gandul",
+"Pangkalan Jati",
+"Pangkalan Jati Baru"
+],
+
+cimanggis: [
+"Cimanggis",
+"Cisalak Pasar",
+"Curug",
+"Harjamukti",
+"Mekarsari",
+"Tugu"
+],
+
+tapos: [
+"Tapos",
+"Cilangkap",
+"Cimpaeun",
+"Jatijajar",
+"Leuwinanggung",
+"Sukamaju Baru"
+],
+
+sawangan: [
+"Sawangan",
+"Bedahan",
+"Cinangka",
+"Kedaung",
+"Pasir Putih",
+"Pengasinan"
+],
+
+bojongsari: [
+"Bojongsari",
+"Bojongsari Baru",
+"Curug",
+"Duren Mekar",
+"Duren Seribu",
+"Pondok Petir"
+]
+
+};
+
+function updateKelurahan(){
+    const kecamatan = document.getElementById("kecamatan").value;
+    const kelurahanSelect = document.getElementById("kelurahan");
+    kelurahanSelect.innerHTML = "<option value=''>Pilih Kelurahan</option>";
+    if(dataKelurahan[kecamatan]){
+        dataKelurahan[kecamatan].forEach(function(kel){
+            const option = document.createElement("option");
+            option.value = kel;
+            option.text = kel;
+            kelurahanSelect.appendChild(option);
+        });
+    }
+}
+
+</script>
+
+</body>
+</html>

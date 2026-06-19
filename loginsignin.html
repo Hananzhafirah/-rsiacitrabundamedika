@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TBC-Care | Solusi Terpadu Penanggulangan TBC</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style1.css" />
+
+    <style>
+      /* Reset Khusus Komponen TBC (Bagian Tengah) */
+.section-header{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.section-title{
+  font-size:30px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: #777;
+}
+
+      .tbc-wrapper * {
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .tbc-wrapper {
+        background-color: #f4f7f6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* --- MAIN CONTENT & KARTU --- */
+      .tbc-main-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 80px 20px 60px;
+      }
+
+      .tbc-portal-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(2600px, 1fr));
+        gap: 43px;
+        max-width: 1000px;
+        margin:auto;
+      }
+
+      .tbc-portal-card {
+  background:#fff;
+  border-radius:18px;
+  padding:45px 20px;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:.3s;
+}
+
+      .tbc-portal-card:hover{
+    transform:translateY(-6px);
+  }
+
+.portal-section{
+  width:100%;
+  padding:20px 20px 50px;
+}
+
+      /* Warna Khusus Tiap Kartu */
+      .tbc-card-pasien {
+        border-top-color: #4eb0ce;
+      }
+      .tbc-card-rs {
+        border-top-color: #004d7a;
+      }
+      .tbc-card-kapitu {
+        border-top-color: #fbb03b;
+      }
+
+      .tbc-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 25px;
+}
+
+.tbc-card-features li {
+  font-size: 14px;
+  padding: 6px 0;
+  color: #555;
+}
+
+      .tbc-icon-wrap {
+        font-size: 45px;
+        margin-bottom: 15px;
+      }
+
+      .tbc-card-pasien .tbc-icon-wrap {
+        color: #4eb0ce;
+      }
+      .tbc-card-rs .tbc-icon-wrap {
+        color: #004d7a;
+      }
+      .tbc-card-kapitu .tbc-icon-wrap {
+        color: #fbb03b;
+      }
+
+      .tbc-custom-img-icon {
+        width: 45px;
+        height: auto;
+      }
+
+      .tbc-card-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        color: #333;
+      }
+
+      /* --- STYLE KHUSUS LOGIN & SIGN IN BAWAH --- */
+      .tbc-card-actions {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        margin-top: auto;
+      }
+
+      .tbc-card-actions a {
+        color: #004d7a;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .tbc-card-actions a:hover {
+        text-decoration: underline;
+        color: #003657;
+      }
+
+      .tbc-card-actions .divider {
+        color: #ccc;
+      }
+
+      /* Responsif untuk Layar Kecil (Hanya Kartu) */
+      @media (max-width: 900px) {
+        .tbc-portal-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .tbc-portal-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .action-buttons {
+        display: flex; /* Membuat isinya sejajar ke samping */
+        justify-content: center;
+        gap: 10px; /* Memberi jarak antar tombol */
+        width: 100%; /* Memastikan kontainer tombol memenuhi lebar kotak */
+        text-align: center;
+      }
+
+      .btn-access1 {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #003657;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+  min-width: 90px;
+}
+
+.btn-access1:hover {
+  background-color: #003657;
+}
+
+      /* Pastikan class tombol Anda (tbc-btn-block) punya aturan ini agar ukurannya terbagi rata */
+      .action-buttons .tbc-btn-block {
+        flex: 1; /* Membuat kedua tombol memiliki lebar yang sama (masing-masing 50%) */
+        text-align: center; /* Memastikan teks tetap di tengah */
+        margin: 0; /* Menghapus margin bawah jika sebelumnya ada */
+      }
+    </style>
+
+  </head>
+  <link rel="stylesheet" href="styleheader.css" />
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <img
+            src="logo.jpeg"
+            alt="Logo TBC"
+            class="nav-logo"
+            style="height: 50px; width: auto"
+          />
+
+          <span class="brand-text"><span class="nav-brand-dark"></span></span>
+        </div>
+
+        <div class="nav-links">
+          <a href="LPumum.html" class="nav-item">Beranda</a>
+          <a href="Untitled-1.html" class="nav-item">Edukasi</a>
+          <button class="btn-login">
+            <a href="loginsignin.html">Login / Daftar</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <main class="tbc-main-container">
+          <section id="portal" class="portal-section">
+        <div class="section-header">
+            <h2 class="section-title no-border">Akses Portal Sesuai Peran Anda</h2>
+            <p class="section-subtitle">Pilih akses dashboard untuk Sign In atau Login</p>
+        </div>
+
+      <div class="portal-grid">
+        <div class="portal-card card-pasien">
+          <div class="icon-wrap">
+            <i class="fa-solid fa-user-plus"></i>
+          </div>
+          <h3 class="card-title">Pengguna</h3>
+
+          <div class="action-buttons">
+            <a href="passuser.html" class="btn-access1">Login</a>
+            <a href="user.html" class="btn-access1">Sign In</a>
+          </div>
+        </div>
+
+        <div class="portal-card card-rs">
+          <div class="icon-wrap">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+          <h3 class="card-title">Mitra Rumah Sakit</h3>
+          <div class="action-buttons">
+            <a href="loginmitra.html" class="btn-access1">Login</a>
+            <a href="passmitra.html" class="btn-access1">Sign In</a>
+          </div>
+        </div>
+
+        <div class="portal-card card-kapitu">
+          <div class="icon-wrap">
+            <img src="kapitu.png" alt="Icon KAPITU" class="custom-img-icon" />
+          </div>
+          <h3 class="card-title">KAPITU</h3>
+
+          <div class="action-buttons">
+            <a href="passkapitu.html" class="btn-access1">Login</a>
+            <a href="kapitu.html" class="btn-access1">Sign In</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div>
+          <img src="LogoPD.png" alt="PeduliTBDepok Logo" class="footer-logo" />
+          <p class="footer-desc">
+            Membangun ekosistem kesehatan digital yang inklusif untuk masa depan
+            Indonesia tanpa TBC.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-title-small">Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="#">Pusat Bantuan</a></li>
+            <li><a href="#">Privasi & Data</a></li>
+            <li><a href="#">Kerja Sama Instansi</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title-small">Kontak Darurat</h4>
+          <p class="footer-contact">
+            <i class="fa-solid fa-phone"></i> Hotline TBC: 088806474921
+          </p>
+          <p class="footer-contact">
+            <i class="fa-solid fa-envelope"></i> faridayenasih@mail.ugm.ac.id
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 PeduliTBDepok Platform. Seluruh Hak Cipta Dilindungi.
+      </div>
+    </footer>
+  </body>
+</html>

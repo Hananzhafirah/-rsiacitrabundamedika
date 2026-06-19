@@ -1,0 +1,181 @@
+/* --- RESET DASAR --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: #f9fafb; /* bg-gray-50 */
+  color: #1f2937;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.nav-container {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0d9488; /* teal-600 */
+  letter-spacing: -0.5px;
+}
+.nav-logo {
+  width: auto;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+}
+/* Ukuran logo footer */
+.footer-logo {
+  width: 170px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.nav-brand-dark {
+  color: #9fe7f5; /* gray-800 */
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+.nav-item {
+  color: #4b5563; /* gray-600 */
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-item:hover {
+  color: #e78baa;
+}
+.btn-login {
+  background-color: #e78baa;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-login:hover {
+  background-color: #b0345d;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+  background: linear-gradient(135deg, #9fe7f5 0%, #053f5c 140%);
+  padding: 64px 20px;
+}
+.hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.hero-content {
+  flex: 1; /* Mengambil 50% ruang */
+}
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #053f5c;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.text-highlight {
+  color: #ffffff;
+}
+.hero-desc {
+  font-size: 1.125rem;
+  color: #053f5c;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+.btn-primary-large {
+  background-color: #053f5c;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s;
+  text-align: center;
+}
+.btn-primary-large:hover {
+  background-color: #0f766e;
+}
+
+.btn-outline-large {
+  background-color: #ffffff;
+  color: #053f5c;
+  border: 1px solid #053f5c;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s;
+  text-align: center;
+}
+.btn-outline-large:hover {
+  background-color: #f0fdfa;
+}
+
+.hero-image {
+  flex: 1; /* Mengambil sisa 50% ruang di kanan */
+  display: flex;
+  justify-content: flex-end; /* Mendorong gambar ke arah kanan */
+  align-items: center;
+  max-width: 300px;
+  border-radius: 200px;
+}
+
+.image-box {
+  /* Tambahkan dua baris ini: */
+  border-radius: 20px; /* Membuat sudut melengkung */
+  overflow: hidden; /* PENTING: Memotong gambar yang 'bocor' keluar dari sudut lengkung */
+
+  /* Sisa style lain jika ada (seperti box-shadow, dll) */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  width: 600px;
+}
+
+/* Pastikan gambarnya mengisi penuh kotak */
+.image-box img {
+  width: 400px;
+  display: block;
+}
+
+.hero-illustration {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Memastikan gambar penuh mengisi bingkai tanpa gepeng */
+  display: block; /* Mencegah adanya celah kosong di bawah gambar */
+}
+.image-box i {
+  font-size: 8rem;
+  color: #053f5c;
+}

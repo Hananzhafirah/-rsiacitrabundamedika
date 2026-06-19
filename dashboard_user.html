@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RSIA Citra Bunda Medika</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style1.css" />
+    <link rel="stylesheet" href="styleheader.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+
+  <style>
+
+    .site-footer{
+    background:#ffffff !important;
+    color:#1f2937 !important;
+    margin-top:48px !important;
+    border-top:1px solid #e5e7eb !important;
+    width:100% !important;
+  }
+
+  .footer-container{
+    max-width:1200px !important;
+    margin:0 auto !important;
+    padding:48px 28px 32px !important;
+    display:grid !important;
+    grid-template-columns:2fr 1fr 1.5fr !important;
+    gap:32px !important;
+    align-items:start !important;
+  }
+
+  .footer-logo{
+    width:170px !important;
+    height:auto !important;
+    display:block !important;
+    margin:0 0 16px 0 !important;
+  }
+
+  .footer-desc{
+    font-size:0.88rem !important;
+    line-height:1.7 !important;
+    color:#1f2937 !important;
+  }
+
+  .footer-title-small{
+    color:#ff7a9d !important;
+    font-size:1rem !important;
+    font-weight:700 !important;
+    margin-bottom:12px !important;
+    text-transform:none !important;
+    letter-spacing:0 !important;
+  }
+
+  .footer-links{
+    list-style:none !important;
+    padding-left:0 !important;
+  }
+
+  .footer-links li{
+    margin-bottom:8px !important;
+  }
+
+  .footer-links a{
+    color:#111827 !important;
+    text-decoration:none !important;
+    font-size:0.88rem !important;
+  }
+
+  .footer-links a:hover{
+    color:#e78baa !important;
+  }
+
+  .footer-contact{
+    margin-bottom:8px !important;
+    color:#111827 !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+    font-size:0.88rem !important;
+  }
+
+  .footer-bottom{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    background:#e78baa !important;
+    color:#ffffff !important;
+    text-align:center !important;
+    padding:12px 20px !important;
+    font-size:0.78rem !important;
+    border-top:1px solid #d96f91 !important;
+    display:block !important;
+  }
+
+  </style>
+
+</head>
+
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink:        #e78baa;
+      --pink-dark:   #c96b8a;
+      --pink-mid:    #d4799a;
+      --pink-light:  #fdf0f5;
+      --pink-pale:   #fef7fa;
+      --navy:        #1a3a5c;
+      --navy-light:  #2a4f78;
+      --teal:        #3a8f8a;
+      --gold:        #c9973a;
+      --purple:      #7c5cbf;
+      --text:        #2a2a35;
+      --text-muted:  #7a7a8a;
+      --border:      #ede8f0;
+      --white:       #ffffff;
+      --bg:          #f9f5f8;
+      --card-shadow: 0 2px 16px rgba(180,100,140,.10);
+      --radius:      14px;
+      --radius-lg:   20px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ==== FOOTER ====*/
+     .site-footer {
+      background: #ffffff;
+      color: #1f2937;
+      margin-top: 48px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 28px 32px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .footer-logo {
+      width: 170px;
+      height: auto;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .footer-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: #1f2937;
+    }
+
+    .footer-title-small {
+      color: #e78baa;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: #111827;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: #e78baa;
+    }
+
+    .footer-contact {
+      margin-bottom: 8px;
+      color: #111827;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-bottom {
+      background: #e78baa;
+      color: white;
+      text-align: center;
+      padding: 14px;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== LAYOUT ===== */
+    .page-wrap { max-width: 1200px; margin: auto; padding: 32px 28px 64px; }
+
+    /* ===== WELCOME BANNER ===== */
+    .welcome-banner {
+      background: linear-gradient(120deg, #1a3a5c 0%, #2a5f8a 55%, #3a7a8a 100%);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
+      position: relative; overflow: hidden;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 32px rgba(26,58,92,.22);
+    }
+    .welcome-banner::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: rgba(255,255,255,.05);
+    }
+    .welcome-banner::after {
+      content: '';
+      position: absolute; bottom: -80px; right: 120px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: rgba(231,139,170,.12);
+    }
+    .welcome-left { position: relative; z-index: 1; }
+    .welcome-greeting {
+      font-size: .8rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--pink); margin-bottom: 6px;
+    }
+    .welcome-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; color: var(--white); font-weight: 600;
+      line-height: 1.2; margin-bottom: 10px;
+    }
+    .welcome-sub { font-size: .88rem; color: rgba(255,255,255,.72); max-width: 420px; line-height: 1.6; }
+    .welcome-right {
+      display: flex; gap: 14px; position: relative; z-index: 1; flex-shrink: 0;
+    }
+    .welcome-stat {
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--radius);
+      padding: 16px 20px; text-align: center; min-width: 100px;
+    }
+    .welcome-stat-num { font-size: 1.6rem; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 4px; }
+    .welcome-stat-label { font-size: .7rem; color: rgba(255,255,255,.65); font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+
+    /* ===== SECTION TITLE ===== */
+    .section-title {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 18px; margin-top: 32px;
+    }
+    .section-title h2 {
+      font-size: 1.05rem; font-weight: 700; color: var(--navy);
+    }
+    .section-title .title-line {
+      flex: 1; height: 1.5px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+    .section-title .title-badge {
+      font-size: .72rem; background: var(--pink-light);
+      color: var(--pink-dark); border: 1px solid #f5c4d4;
+      padding: 3px 10px; border-radius: 100px; font-weight: 600;
+    }
+
+    /* ===== QUICK ACTION ===== */
+    .quick-actions {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      margin-bottom: 8px;
+    }
+    .qa-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 16px;
+      text-align: center; cursor: pointer; text-decoration: none;
+      transition: all .22s; display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .qa-card:hover { transform: translateY(-3px); box-shadow: var(--card-shadow); border-color: var(--pink); }
+    .qa-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .qa-icon.pink  { background: #fce8f1; color: var(--pink-dark); }
+    .qa-icon.navy  { background: #e8f0fc; color: var(--navy); }
+    .qa-icon.teal  { background: #e8f5f4; color: var(--teal); }
+    .qa-icon.gold  { background: #fdf3e3; color: var(--gold); }
+    .qa-label { font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+
+    /* ===== POLI GRID ===== */
+    .poli-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .poli-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px;
+      transition: all .22s; cursor: pointer;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .poli-card:hover { transform: translateY(-3px); box-shadow: var(--card-shadow); border-color: var(--pink); }
+    .poli-head { display: flex; align-items: flex-start; gap: 12px; }
+    .poli-icon {
+      width: 46px; height: 46px; border-radius: 13px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.15rem;
+    }
+    .poli-icon.obgyn  { background: linear-gradient(135deg,#fce8f1,#f8d0e4); color: var(--pink-dark); }
+    .poli-icon.anak   { background: linear-gradient(135deg,#e8f0fc,#d0dff8); color: var(--navy); }
+    .poli-icon.penunj { background: linear-gradient(135deg,#e8f5f4,#d0ecea); color: var(--teal); }
+    .poli-name { font-size: .92rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .poli-sub  { font-size: .75rem; color: var(--text-muted); font-weight: 500; }
+    .poli-desc { font-size: .8rem; color: var(--text-muted); line-height: 1.6; }
+    .poli-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 6px; }
+    .poli-status {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: .72rem; font-weight: 600; color: #2e7d32;
+      background: #e8f5e9; border-radius: 100px; padding: 3px 10px;
+    }
+    .poli-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #43a047; display: inline-block; }
+    .poli-btn {
+      font-size: .75rem; font-weight: 600; color: var(--pink-dark);
+      background: var(--pink-light); border: none; border-radius: 8px;
+      padding: 6px 12px; cursor: pointer; transition: all .18s;
+    }
+    .poli-btn:hover { background: #fce4ef; }
+
+    /* ===== FASILITAS RAWAT INAP ===== */
+    .inap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .inap-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 22px;
+      display: flex; align-items: flex-start; gap: 14px;
+      transition: all .22s; cursor: pointer;
+    }
+    .inap-card:hover { transform: translateY(-2px); box-shadow: var(--card-shadow); border-color: var(--pink); }
+    .inap-icon {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .inap-icon.bangsal { background: linear-gradient(135deg,#fce8f1,#f5d0e8); color: var(--pink-dark); }
+    .inap-icon.nicu    { background: linear-gradient(135deg,#e8f0fc,#d8e8fa); color: var(--navy); }
+    .inap-icon.icu     { background: linear-gradient(135deg,#fdf3e3,#f8e8c8); color: var(--gold); }
+    .inap-icon.igd     { background: linear-gradient(135deg,#fde8e8,#f8d0d0); color: #c62828; }
+    .inap-title { font-size: .9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .inap-desc  { font-size: .78rem; color: var(--text-muted); line-height: 1.55; }
+    .bangsal-kelas {
+      display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px;
+    }
+    .kelas-badge {
+      font-size: .67rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 100px; letter-spacing: .04em;
+    }
+    .kelas-badge.vvip  { background: #fdf3e3; color: var(--gold); border: 1px solid #f5e0b0; }
+    .kelas-badge.vip   { background: #f3e8fc; color: var(--purple); border: 1px solid #dcc8f5; }
+    .kelas-badge.k1    { background: var(--pink-light); color: var(--pink-dark); border: 1px solid #f5c4d4; }
+    .kelas-badge.k2    { background: #e8f0fc; color: var(--navy); border: 1px solid #c8d8f8; }
+    .kelas-badge.k3    { background: #e8f5f4; color: var(--teal); border: 1px solid #c0deda; }
+
+    /* ===== HOMECARE ===== */
+    .homecare-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .hc-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 16px;
+      text-align: center; cursor: pointer; text-decoration: none;
+      transition: all .22s; display: flex; flex-direction: column; align-items: center; gap: 10px;
+      position: relative; overflow: hidden;
+    }
+    .hc-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--pink), var(--pink-dark));
+      opacity: 0; transition: opacity .22s;
+    }
+    .hc-card:hover { transform: translateY(-3px); box-shadow: var(--card-shadow); border-color: var(--pink); }
+    .hc-card:hover::before { opacity: 1; }
+    .hc-icon {
+      width: 52px; height: 52px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.35rem;
+    }
+    .hc-icon.massage { background: linear-gradient(135deg,#fce8f1,#f8d5e8); color: var(--pink-dark); }
+    .hc-icon.talpus  { background: linear-gradient(135deg,#e8f0fc,#d5e5f8); color: var(--navy); }
+    .hc-icon.senam   { background: linear-gradient(135deg,#e8f5f4,#d0ece8); color: var(--teal); }
+    .hc-icon.spa     { background: linear-gradient(135deg,#fdf3e3,#f5e5c0); color: var(--gold); }
+    .hc-name  { font-size: .84rem; font-weight: 700; color: var(--navy); line-height: 1.3; }
+    .hc-desc  { font-size: .75rem; color: var(--text-muted); line-height: 1.5; }
+    .hc-badge {
+      font-size: .68rem; background: var(--pink-light);
+      color: var(--pink-dark); border: 1px solid #f5c4d4;
+      padding: 2px 10px; border-radius: 100px; font-weight: 600;
+    }
+
+    /* ===== INFO STRIP ===== */
+    .info-strip {
+      background: linear-gradient(90deg, var(--navy) 0%, #2a5080 100%);
+      border-radius: var(--radius); padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; margin-top: 32px;
+    }
+    .info-strip-left { display: flex; align-items: center; gap: 12px; }
+    .info-strip-icon { font-size: 1.3rem; color: var(--pink); }
+    .info-strip-text { font-size: .85rem; color: rgba(255,255,255,.9); font-weight: 500; }
+    .info-strip-text strong { color: var(--white); }
+    .info-strip-btn {
+      background: var(--pink); color: var(--white);
+      border: none; border-radius: 10px; padding: 9px 20px;
+      font-size: .83rem; font-weight: 700; cursor: pointer;
+      transition: background .18s; white-space: nowrap; flex-shrink: 0;
+    }
+    .info-strip-btn:hover { background: var(--pink-dark); }
+
+    /* ===== FOOTER ===== */
+    .site-footer { background: var(--navy); color: #c9d6e3; margin-top: 48px; }
+    .footer-container { max-width: 1200px; margin: auto; padding: 40px 28px 28px; display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 32px; }
+    .footer-logo  { height: 44px; border-radius: 8px; margin-bottom: 12px; display: block; }
+    .footer-desc  { font-size: .84rem; line-height: 1.7; color: #a0b4c8; }
+    .footer-title-small { font-size: .78rem; font-weight: 700; color: #e0eaf5; margin-bottom: 12px; text-transform: uppercase; letter-spacing: .06em; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { color: #a0b4c8; text-decoration: none; font-size: .84rem; transition: color .18s; }
+    .footer-links a:hover { color: var(--pink); }
+    .footer-contact { font-size: .84rem; color: #a0b4c8; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .footer-bottom { border-top: 1px solid #2a4a6a; padding: 14px 28px; text-align: center; font-size: .77rem; color: #6a8aa8; max-width: 1200px; margin: 0 auto; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .poli-grid, .homecare-grid { grid-template-columns: 1fr 1fr; }
+      .quick-actions { grid-template-columns: repeat(2, 1fr); }
+      .welcome-right { display: none; }
+      .inap-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .page-wrap { padding: 20px 16px 48px; }
+      .welcome-banner { padding: 24px 22px; }
+      .welcome-name { font-size: 1.4rem; }
+      .poli-grid, .homecare-grid, .quick-actions { grid-template-columns: 1fr; }
+      .footer-container { grid-template-columns: 1fr; }
+      .nav-links .nav-item { display: none; }
+      .info-strip { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ===== ENTRY ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .welcome-banner  { animation: fadeUp .5s ease both; }
+    .quick-actions   { animation: fadeUp .5s .1s ease both; }
+    .poli-grid       { animation: fadeUp .5s .15s ease both; }
+    .inap-grid       { animation: fadeUp .5s .2s ease both; }
+    .homecare-grid   { animation: fadeUp .5s .25s ease both; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <img
+        src="logorsia.jpeg"
+        alt="Logo RSIA Citra Bunda Medika"
+        class="nav-logo"
+      />
+      <span class="nav-brand-dark"></span>
+    </div>
+
+    <div class="nav-links">
+      <a href="lp.html" class="nav-item">Beranda</a>
+      <a href="Untitled-1.html" class="nav-item">Edukasi</a>
+      <a href="Untitled-1.html" class="nav-item">About Us</a>
+      <a href="Untitled-1.html" class="nav-item">Previews</a>
+      <a href="Untitled-1.html" class="nav-item">Contact Us</a>
+      <button class="btn-login">
+        <a href="portallogin.html">Login / Daftar</a>
+      </button>
+    </div>
+  </div>
+</nav>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-wrap">
+
+    <!-- WELCOME BANNER -->
+    <div class="welcome-banner">
+      <div class="welcome-left">
+        <div class="welcome-greeting">Selamat Datang Kembali ✦</div>
+        <div class="welcome-name" id="welcomeName">Anisa Utami</div>
+        <div class="welcome-sub">Kami senang Anda hadir. Temukan layanan kesehatan terbaik untuk Anda dan keluarga di RSIA Citra Bunda Medika.</div>
+      </div>
+      <div class="welcome-right">
+        <div class="welcome-stat">
+          <div class="welcome-stat-num">3</div>
+          <div class="welcome-stat-label">Poli Aktif</div>
+        </div>
+        <div class="welcome-stat">
+          <div class="welcome-stat-num">24/7</div>
+          <div class="welcome-stat-label">IGD Siaga</div>
+        </div>
+        <div class="welcome-stat">
+          <div class="welcome-stat-num">4</div>
+          <div class="welcome-stat-label">Homecare</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUICK ACTIONS -->
+    <div class="section-title">
+      <h2><i class="fa-solid fa-bolt" style="color:var(--pink);font-size:.9rem"></i> Aksi Cepat</h2>
+      <div class="title-line"></div>
+    </div>
+    <div class="quick-actions">
+      <a href="#" class="qa-card">
+        <div class="qa-icon pink"><i class="fa-solid fa-calendar-plus"></i></div>
+        <div class="qa-label">Buat Janji Temu</div>
+      </a>
+      <a href="#" class="qa-card">
+        <div class="qa-icon navy"><i class="fa-solid fa-file-medical"></i></div>
+        <div class="qa-label">Riwayat Kunjungan</div>
+      </a>
+      <a href="#" class="qa-card">
+        <div class="qa-icon teal"><i class="fa-solid fa-house-medical"></i></div>
+        <div class="qa-label">Pesan Homecare</div>
+      </a>
+      <a href="#" class="qa-card">
+        <div class="qa-icon gold"><i class="fa-solid fa-headset"></i></div>
+        <div class="qa-label">Hubungi Kami</div>
+      </a>
+    </div>
+
+    <!-- POLI -->
+    <div class="section-title">
+      <h2><i class="fa-solid fa-stethoscope" style="color:var(--pink);font-size:.9rem"></i> Poli Spesialis</h2>
+      <div class="title-line"></div>
+      <div class="title-badge">3 Poli Tersedia</div>
+    </div>
+    <div class="poli-grid">
+
+      <div class="poli-card">
+        <div class="poli-head">
+          <div class="poli-icon obgyn"><i class="fa-solid fa-venus"></i></div>
+          <div>
+            <div class="poli-name">Kebidanan &amp; Kandungan</div>
+            <div class="poli-sub">Spesialis Obgyn</div>
+          </div>
+        </div>
+        <div class="poli-desc">Melayani pemeriksaan kehamilan, program hamil, USG kandungan, hingga proses persalinan yang aman dan nyaman.</div>
+        <div class="poli-footer">
+          <span class="poli-status">Buka Hari Ini</span>
+          <button class="poli-btn">Daftar Sekarang</button>
+        </div>
+      </div>
+
+      <div class="poli-card">
+        <div class="poli-head">
+          <div class="poli-icon anak"><i class="fa-solid fa-baby"></i></div>
+          <div>
+            <div class="poli-name">Poli Anak</div>
+            <div class="poli-sub">Spesialis Pediatri</div>
+          </div>
+        </div>
+        <div class="poli-desc">Melayani pemantauan tumbuh kembang, imunisasi, dan pengobatan berbagai penyakit pada bayi hingga remaja.</div>
+        <div class="poli-footer">
+          <span class="poli-status">Buka Hari Ini</span>
+          <button class="poli-btn">Daftar Sekarang</button>
+        </div>
+      </div>
+
+      <div class="poli-card">
+        <div class="poli-head">
+          <div class="poli-icon penunj"><i class="fa-solid fa-teeth"></i></div>
+          <div>
+            <div class="poli-name">Poli Spesialis Penunjang</div>
+            <div class="poli-sub">Multi Layanan</div>
+          </div>
+        </div>
+        <div class="poli-desc">Mencakup Poli Laktasi, Poli Gigi Anak &amp; Dewasa, serta Poli Kulit dan Kelamin untuk kebutuhan kesehatan lengkap.</div>
+        <div class="poli-footer">
+          <span class="poli-status">Buka Hari Ini</span>
+          <button class="poli-btn">Daftar Sekarang</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RAWAT INAP -->
+    <div class="section-title">
+      <h2><i class="fa-solid fa-hospital" style="color:var(--pink);font-size:.9rem"></i> Fasilitas Rawat Inap</h2>
+      <div class="title-line"></div>
+    </div>
+    <div class="inap-grid">
+
+      <div class="inap-card">
+        <div class="inap-icon bangsal"><i class="fa-solid fa-bed"></i></div>
+        <div>
+          <div class="inap-title">Bangsal Rawat Inap</div>
+          <div class="inap-desc">Tersedia berbagai pilihan kelas kamar yang nyaman dan bersih untuk pemulihan optimal pasien.</div>
+          <div class="bangsal-kelas">
+            <span class="kelas-badge vvip">VVIP</span>
+            <span class="kelas-badge vip">VIP</span>
+            <span class="kelas-badge k1">Kelas 1</span>
+            <span class="kelas-badge k2">Kelas 2</span>
+            <span class="kelas-badge k3">Kelas 3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="inap-card">
+        <div class="inap-icon nicu"><i class="fa-solid fa-heart-pulse"></i></div>
+        <div>
+          <div class="inap-title">NICU &amp; PICU</div>
+          <div class="inap-desc">Neonatal Intensive Care Unit dan Pediatric Intensive Care Unit untuk perawatan intensif bayi dan anak dengan kondisi kritis.</div>
+        </div>
+      </div>
+
+      <div class="inap-card">
+        <div class="inap-icon icu"><i class="fa-solid fa-monitor-waveform"></i></div>
+        <div>
+          <div class="inap-title">ICU</div>
+          <div class="inap-desc">Intensive Care Unit dilengkapi peralatan medis canggih dan tenaga profesional yang siaga 24 jam penuh.</div>
+        </div>
+      </div>
+
+      <div class="inap-card">
+        <div class="inap-icon igd"><i class="fa-solid fa-truck-medical"></i></div>
+        <div>
+          <div class="inap-title">IGD (Instalasi Gawat Darurat)</div>
+          <div class="inap-desc">Layanan darurat aktif 24 jam / 7 hari untuk penanganan kondisi gawat darurat medis secara cepat dan tepat.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- HOMECARE -->
+    <div class="section-title">
+      <h2><i class="fa-solid fa-house-heart" style="color:var(--pink);font-size:.9rem"></i> Layanan Homecare</h2>
+      <div class="title-line"></div>
+      <div class="title-badge">Kunjungan ke Rumah</div>
+    </div>
+    <div class="homecare-grid">
+
+      <div class="hc-card">
+        <div class="hc-icon massage"><i class="fa-solid fa-hands"></i></div>
+        <div class="hc-name">Massage Ibu &amp; Anak</div>
+        <div class="hc-desc">Pijat relaksasi profesional untuk ibu pasca melahirkan dan pijat stimulasi untuk bayi.</div>
+        <span class="hc-badge">Homecare</span>
+      </div>
+
+      <div class="hc-card">
+        <div class="hc-icon talpus"><i class="fa-solid fa-baby-carriage"></i></div>
+        <div class="hc-name">Perawatan Tali Pusar</div>
+        <div class="hc-desc">Perawatan tali pusar bayi baru lahir oleh tenaga bidan terlatih di rumah Anda.</div>
+        <span class="hc-badge">Homecare</span>
+      </div>
+
+      <div class="hc-card">
+        <div class="hc-icon senam"><i class="fa-solid fa-person-walking"></i></div>
+        <div class="hc-name">Senam Hamil</div>
+        <div class="hc-desc">Program senam kehamilan terpandu untuk menjaga kebugaran dan mempersiapkan persalinan normal.</div>
+        <span class="hc-badge">Homecare</span>
+      </div>
+
+      <div class="hc-card">
+        <div class="hc-icon spa"><i class="fa-solid fa-droplet"></i></div>
+        <div class="hc-name">Baby Spa</div>
+        <div class="hc-desc">Hydrotherapy dan pijat bayi menyenangkan untuk mendukung perkembangan motorik dan relaksasi si kecil.</div>
+        <span class="hc-badge">Homecare</span>
+      </div>
+
+    </div>
+
+    <!-- INFO STRIP -->
+    <div class="info-strip">
+      <div class="info-strip-left">
+        <div class="info-strip-icon"><i class="fa-solid fa-phone-volume"></i></div>
+        <div class="info-strip-text">
+          Butuh bantuan segera? Hubungi hotline kami:
+          <strong> 088806474921</strong> &nbsp;·&nbsp; <strong>rsiacitrabundamedika@gmail.com</strong>
+        </div>
+      </div>
+      <button class="info-strip-btn" onclick="window.location.href='tel:088806474921'">
+        <i class="fa-solid fa-phone"></i> Hubungi Sekarang
+      </button>
+    </div>
+
+  </div><!-- /.page-wrap -->
+
+  <!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div>
+      <img
+        src="logorsia.jpeg"
+        alt="Logo RSIA Citra Bunda Medika"
+        class="footer-logo"
+      />
+      <p class="footer-desc">
+        Sahabat kesehatan ibu dan anak dengan pelayanan yang ramah, aman,
+        dan terpercaya.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="footer-title-small">Navigasi</h4>
+      <ul class="footer-links">
+        <li><a href="#">Pusat Bantuan</a></li>
+        <li><a href="#">Privasi & Data</a></li>
+        <li><a href="#">Kerja Sama Instansi</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-title-small">Kontak Darurat</h4>
+      <p class="footer-contact">
+        <i class="fa-solid fa-phone"></i>
+        Hotline RSIA: 088806474921
+      </p>
+      <p class="footer-contact">
+        <i class="fa-solid fa-envelope"></i>
+        rsiacitrabundamedika@gmail.com
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2026 RSIA Citra Bunda Medika. Seluruh Hak Cipta Dilindungi.
+  </div>
+</footer>
+
+</body>
+</html>

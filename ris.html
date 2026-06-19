@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeduliTBDepok - Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DEFINISI WARNA DARI PALETTE --- */
+        :root {
+            --color-light-blue: #9FE7F5; /* Biru Muda Segar */
+            --color-med-blue:   #429EBD; /* Biru Laut Sedang */
+            --color-dark-blue:  #053F5C; /* Biru Gelap (Header) */
+            --color-orange:     #F7AD19; /* Oranye/Kuning (Aksen & Tombol) */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
+
+        :root {
+            --primary-blue: #ffffff; 
+            --accent-yellow: #fbb03b; 
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 10px 50px; /* Padding diperkecil sedikit agar proporsional */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent-yellow);
+            height: 90px; /* Tinggi navbar disesuaikan dengan logo */
+        }
+
+        /* PENTING: Pengaturan Logo */
+        .brand {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .brand-logo-img {
+            height: 70px; /* Tinggi logo */
+            width: auto;
+            background-color: white; /* Memberi latar putih karena gambar JPG */
+            padding: 5px 15px; /* Memberi jarak agar tidak mepet */
+            border-radius: 8px; /* Sudut melengkung agar manis */
+            object-fit: contain; /* Memastikan gambar tidak gepeng */
+        }
+
+        /* MENU LINKS */
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a {
+            color: #f7ad19; text-decoration: none; font-weight: 600; font-size: 15px; transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent-yellow); }
+
+        /* Kanan: Search & Login */
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .login-btn {
+            color: white; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;
+        }
+
+        /* HERO SECTION */
+        .hero-container {
+            position: relative; width: 100%; height: 500px;
+            overflow: hidden; display: flex; justify-content: center; align-items: center;
+        }
+
+        .hero-slide {
+            width: 90%; height: 100%;
+            background: linear-gradient(rgba(14, 48, 72, 0.7), rgba(14, 48, 72, 0.4)), 
+                        url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Gedung_Pusat_UGM_Yogyakarta.jpg/1200px-Gedung_Pusat_UGM_Yogyakarta.jpg'); 
+            background-size: cover; background-position: center;
+            border-radius: 0 0 5px 5px;
+            position: relative; display: flex; flex-direction: column;
+            justify-content: center; padding-left: 80px; color: white;
+        }
+
+        .hero-text h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; }
+        .hero-text p { font-size: 1.1rem; max-width: 600px; margin-bottom: 30px; line-height: 1.5; color: #e0e0e0; }
+        
+        .cta-button {
+            background-color: #e6e6e6; color: #333; padding: 12px 25px; border: none;
+            border-radius: 4px; font-weight: 700; cursor: pointer; text-decoration: none;
+            display: inline-block; transition: background 0.3s;
+        }
+        .cta-button:hover { background-color: #fff; }
+
+        /* Navigasi Slider */
+        .slider-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: transparent; border: none; color: var(--accent-yellow);
+            font-size: 3rem; cursor: pointer; opacity: 0.7;
+        }
+        .slider-arrow:hover { opacity: 1; }
+        .prev { left: 20px; }
+        .next { right: 20px; }
+
+        .slider-dots {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 10px;
+        }
+        .dot { width: 12px; height: 12px; border: 2px solid white; border-radius: 50%; cursor: pointer; }
+        .dot.active { background-color: var(--accent-yellow); border-color: var(--accent-yellow); }
+
+        /* Tambahan */
+        .guest-toast {
+            position: fixed; bottom: 0; right: 0; background-color: #faebd7; padding: 15px 30px;
+            display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333;
+            border-top-left-radius: 5px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 100;
+        }
+        .side-tab {
+            position: fixed; top: 30%; right: 0; background-color: #eee; padding: 15px 10px;
+            border-top-left-radius: 5px; border-bottom-left-radius: 5px; font-weight: bold;
+            color: #555; box-shadow: -2px 2px 5px rgba(0,0,0,0.1); cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; height: auto; gap: 15px; padding: 20px; }
+            .hero-slide { width: 100%; border-radius: 0; padding-left: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand">
+            <img src="logo.jpeg" alt="PeduliTBDepok" class="brand-logo-img">
+        </div>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">Help</a>
+            <a href="#">About</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="#" style="color:white;"><i class="fas fa-search"></i></a>
+            <a href="#" class="login-btn">Log in <i class="fas fa-sign-in-alt"></i></a>
+        </div>
+    </nav>
+
+    <section class="hero-container">
+        <div class="hero-slide">
+            <div class="hero-text">
+                <h1>Selamat datang di PeduliTBDepok</h1>
+                <p>Sistem informasi dan edukasi penanggulangan Tuberkulosis<br>di Kota Depok.</p>
+                <a href="#" class="cta-button">Dashboard</a>
+            </div>
+            <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
+            <div class="slider-dots">
+                <div class="dot"></div>
+                <div class="dot active"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="side-tab">+0</div>
+    <div class="guest-toast">
+        <i class="far fa-user-circle"></i>
+        You are currently using guest access
+    </div>
+
+</body>
+</html>

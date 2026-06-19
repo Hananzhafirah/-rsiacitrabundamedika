@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TBC-Care | Solusi Terpadu Penanggulangan TBC</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+   <link rel="stylesheet" href="styleheader.css" />
+  <body>
+    <div style="min-height: 100vh; display: flex; flex-direction: column;">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <img
+            src="logo.jpeg"
+            alt="Logo TBC"
+            class="nav-logo"
+            style="height: 50px; width: auto"
+          />
+          <span class="brand-text"><span class="nav-brand-dark"></span></span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#" class="nav-item">Beranda</a>
+            <a href="#" class="nav-item">Edukasi</a>
+          <button class="btn-login"><a href="passmitra.html">Login / Daftar</a></button>
+        </div>
+      </div>
+    </nav>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Monitoring & Finance Dashboard - TBC Care</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #053f5c;
+            --bg-light: #f0f4f7;
+            --white: #ffffff;
+            --text-dark: #333;
+            --success-bg: #d1fae5;
+            --success-text: #065f46;
+            --accent: #f69e3a;
+            --warning-bg: #fff3cd;
+            --warning-text: #856404;
+            --finance-color: #27ae60; /* Hijau untuk Keuangan */
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-dark);
+        }
+
+        .container { max-width: 1600px; margin: 0 auto; }
+
+        .header-main { 
+            margin-bottom: 30px; 
+            border-bottom: 3px solid var(--primary-color); 
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Styling Section Layanan */
+        .service-section {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .section-title {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            margin: 0;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Khusus Section Keuangan */
+        .finance-title { background: var(--finance-color); }
+
+        .table-responsive { overflow-x: auto; }
+
+        table { width: 100%; border-collapse: collapse; min-width: 1000px; }
+
+        th {
+            background: #f8f9fa;
+            color: var(--primary-color);
+            padding: 15px;
+            text-align: left;
+            font-size: 12px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #eee;
+        }
+
+        td { padding: 15px; border-bottom: 1px solid #eee; font-size: 14px; }
+
+        .nominal { font-weight: bold; color: var(--primary-color); }
+        .finance-nominal { color: var(--finance-color); font-weight: 800; font-size: 15px; }
+        .bg-lunas { background: #e8f5e9; color: #2e7d32; }
+        .bg-belum-selesai { background: #f6c7c7; color: #820b0b; }
+        .bg-proses { background: rgb(255, 239, 197); color: rgb(171, 129, 5); }
+        .bg-diterima { background: #c3dafc; color: rgb(8, 92, 218); }
+        .bg-selesai { background: rgb(159, 203, 166); color: #0aa624; }
+        .method-tag { background: #eee; color: #555; padding: 3px 8px; border-radius: 4px; font-size: 11px; }
+
+        /* Grid Dashboard menyamai .service-cards */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-dark);
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        /* Card menyamai .service-card */
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: left;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-dark);
+        }
+
+        .stat-card i {
+            font-size: 32px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .stat-card h3 {
+            margin: 10px 0;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+        }
+
+                /* Menyamakan gaya list dengan alur booking */
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .stat-item:last-child { border: none; }
+
+        .stat-label { color: var(--text-gray); font-size: 14px; }
+        .stat-value { font-weight: 700; color: #333; }
+
+        /* Status Badge menyamai .status-completed/.status-pending */
+        .badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge-positive { background: var(--success-bg); color: var(--success-text); }
+        .badge-neutral { background: var(--accent-blue); color: var(--primary-dark); }
+
+        tr:hover { background-color: #f9f9f9; }
+    </style>
+<body>
+
+<main style="flex: 1;">
+<div class="container">
+    <div class="header-main">
+        <div>
+            <h2><i class="fa-solid fa-chart-pie"></i> Integrated Monitoring Dashboard</h2>
+            <p>Sistem Pemantauan Layanan & Arus Kas Mitra Kesehatan</p>
+        </div>
+        <button onclick="window.print()" style="padding: 10px 20px; cursor: pointer; background: white; border: 1px solid #ccc; border-radius: 5px;">
+            <i class="fa-solid fa-print"></i> Cetak Laporan
+        </button>
+    </div>
+
+    <div class="service-section">
+        <h3 class="section-title"><i class="fa-solid fa-video"></i> Monitoring Konsultasi Online</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Pasien</th><th>Dokter</th><th>Tanggal</th><th>Jam</th><th>Nominal</th><th>Status</th><th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Budi Santoso</strong></td><td>dr. Siti Aminah, Sp.P</td><td>20/03/2026</td><td>09:00 WIB</td><td class="nominal">Rp 150.000</td><td><span class="badge bg-lunas">Lunas</span></td><td><span class="badge bg-belum-selesai">Belum Selesai</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="service-section">
+        <h3 class="section-title"><i class="fa-solid fa-vial"></i> Monitoring Pengajuan Tes</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Pasien</th><th>Jenis Tes</th><th>RS Tujuan</th><th>Tanggal</th><th>Jam</th><th>Nominal</th><th>Status</th><th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Rizky Ramadhan</strong></td><td>Mantoux Test</td><td>RS Mitra Keluarga</td><td>21/03/2026</td><td>08:00 WIB</td><td class="nominal">Rp 350.000</td><td><span class="badge bg-lunas">Lunas</span></td><td><span class="badge bg-proses">Proses</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="service-section">
+        <h3 class="section-title"><i class="fa-solid fa-bed"></i> Monitoring Rawat Inap</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Pasien</th><th>Tujuan</th><th>RS Tujuan</th><th>Tanggal Masuk</th><th>Kelas</th><th>Nominal</th><th>Status</th><th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hendra Kurnia</strong></td><td>Isolasi TBC</td><td>RSUD Depok</td><td>25/03/2026</td><td>VIP</td><td class="nominal">Rp 4.500.000</td><td><span class="badge bg-lunas">Lunas</span></td><td><span class="badge bg-diterima">Diterima</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="service-section">
+        <h3 class="section-title"><i class="fa-solid fa-user-nurse"></i> Monitoring Rawat Jalan (Homecare)</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Pasien</th><th>Perawat</th><th>Tanggal Visit</th><th>Jam</th><th>Nominal</th><th>Status</th><th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Siti Fatimah</strong></td><td>Ns. Linda</td><td>22/03/2026</td><td>10:00 WIB</td><td class="nominal">Rp 250.000</td><td><span class="badge bg-lunas">Lunas</span></td><td><span class="badge bg-belum-selesai">Belum Selesai</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="service-section" style="border: 2px solid var(--finance-color);">
+        <h3 class="section-title finance-title"><i class="fa-solid fa-money-bill-trend-up"></i> Rekapitulasi Pemasukan (Finance)</h3>
+        <div class="table-responsive">
+            <table style="min-width: 1000px;">
+                <thead>
+                    <tr style="background: #f0fff4;">
+                        <th style="color: var(--finance-color);">Tanggal Transaksi</th>
+                        <th style="color: var(--finance-color);">Jenis Pemesanan</th>
+                        <th style="color: var(--finance-color);">Nama Pasien</th>
+                        <th style="color: var(--finance-color);">Nominal Masuk</th>
+                        <th style="color: var(--finance-color);">Metode Pembayaran</th>
+                        <th style="color: var(--finance-color);">Status Audit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>20/03/2026</td>
+                        <td><span class="method-tag">Konsultasi Online</span></td>
+                        <td>Budi Santoso</td>
+                        <td class="finance-nominal">Rp 150.000</td>
+                        <td><i class="fa-solid fa-qrcode"></i> QRIS - Gopay</td>
+                        <td><i class="fa-solid fa-check-double" style="color: var(--finance-color);"></i> Terverifikasi</td>
+                    </tr>
+                    <tr>
+                        <td>21/03/2026</td>
+                        <td><span class="method-tag">Pengajuan Tes</span></td>
+                        <td>Rizky Ramadhan</td>
+                        <td class="finance-nominal">Rp 350.000</td>
+                        <td><i class="fa-solid fa-building-columns"></i> VA Bank BCA</td>
+                        <td><i class="fa-solid fa-check-double" style="color: var(--finance-color);"></i> Terverifikasi</td>
+                    </tr>
+                    <tr>
+                        <td>22/03/2026</td>
+                        <td><span class="method-tag">Rawat Jalan</span></td>
+                        <td>Siti Fatimah</td>
+                        <td class="finance-nominal">Rp 250.000</td>
+                        <td><i class="fa-solid fa-qrcode"></i> QRIS - OVO</td>
+                        <td><i class="fa-solid fa-check-double" style="color: var(--finance-color);"></i> Terverifikasi</td>
+                    </tr>
+                    <tr>
+                        <td>25/03/2026</td>
+                        <td><span class="method-tag">Rawat Inap</span></td>
+                        <td>Hendra Kurnia</td>
+                        <td class="finance-nominal">Rp 4.500.000</td>
+                        <td><i class="fa-solid fa-building-columns"></i> VA Bank Mandiri</td>
+                        <td><i class="fa-solid fa-check-double" style="color: var(--finance-color);"></i> Terverifikasi</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr style="background: #f9f9f9; font-weight: bold;">
+                        <td colspan="3" style="text-align: right; padding: 20px;">TOTAL PEMASUKAN BERSIH:</td>
+                        <td colspan="3" style="color: var(--finance-color); font-size: 18px; padding: 20px;">Rp 5.250.000</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    
+    <div class="section-header">
+      <h2>Perbandingan Pendapatan Berdasarkan Jenis Pemesanan</h2>
+      <div class="finance-chart-container" style="flex-direction: column;">
+        <canvas id="financeChart"></canvas>
+      </div>
+    </div>
+    
+    <div class="section-header">
+      <h2>Statistik Operasional Mitra</h2>
+      <p>Ringkasan data pelayanan TBC-Care periode Maret 2026</p>
+    </div>
+       
+    <div class="dashboard-grid">
+            <div class="stat-card">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <h3>Efisiensi Layanan</h3>
+                <div class="stat-item">
+                    <span class="stat-label">Rata-rata Respon Dokter</span>
+                    <span class="stat-value">12 Menit</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Waktu Tunggu Tes TCM</span>
+                    <span class="stat-value">45 Menit</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-face-smile"></i>
+                <h3>Kepuasan Pasien</h3>
+                <div class="stat-item">
+                    <span class="stat-label">Rating Konsultasi Online</span>
+                    <span class="stat-value">4.8/5.0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Keberhasilan Homecare</span>
+                    <span class="stat-value">95%</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-receipt"></i>
+                <h3>Performa Transaksi</h3>
+                <div class="stat-item">
+                    <span class="stat-label">Transaksi Berhasil</span>
+                    <span class="stat-value">312 <span class="badge badge-neutral">Maret</span></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Metode Terfavorit</span>
+                    <span class="stat-value">QRIS (60%)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+ <footer class="site-footer">
+        <div class="footer-container">
+            <div>
+                <img src="LogoPD.png" alt="PeduliTBDepok Logo" class="footer-logo">
+                <p class="footer-desc">Membangun ekosistem kesehatan digital yang inklusif untuk masa depan Indonesia tanpa TBC.</p>
+            </div>
+            <div>
+                <h4 class="footer-title-small">Navigasi</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Pusat Bantuan</a></li>
+                    <li><a href="#">Privasi & Data</a></li>
+                    <li><a href="#">Kerja Sama Instansi</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title-small">Kontak Darurat</h4>
+                <p class="footer-contact"><i class="fa-solid fa-phone"></i> Hotline TBC: 088806474921</p>
+                <p class="footer-contact"><i class="fa-solid fa-envelope"></i> faridayeniasih@mail.ugm.ac.id</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 PeduliTBDepok Platform. Seluruh Hak Cipta Dilindungi.
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('financeChart');
+
+  const financeChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: [
+        'Konsultasi',
+        'Pengajuan Tes',
+        'Rawat Jalan',
+        'Rawat Inap'
+      ],
+      datasets: [{
+        label: 'Pendapatan',
+        data: [
+          150000,  // Konsultasi
+          350000,  // Tes
+          250000,  // Rawat Jalan
+          4500000  // Rawat Inap
+        ],
+        backgroundColor: [
+          '#053f5c',
+          '#f69e3a',
+          '#27ae60',
+          '#3498db'
+        ],
+        borderWidth: 1
+      }]
+    },
+options: {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: 'bottom'
+    },
+    title: {
+      display: false,
+    }
+  }
+}
+  });
+</script>
+</body>
+</html>

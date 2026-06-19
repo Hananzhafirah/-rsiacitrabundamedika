@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RSIA Citra Bunda Medika</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style1.css" />
+    <link rel="stylesheet" href="styleheader.css" />
+    <link rel="stylesheet" href="styledashboard.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <img
+            src="logorsia.jpeg"
+            alt="Logo RSIA Citra Bunda Medika"
+            class="nav-logo"
+          />
+
+          <span class="brand-text"><span class="nav-brand-dark"></span></span>
+        </div>
+
+        <div class="nav-links">
+         <a href="dashboard.html" class="nav-item">Beranda</a>
+          <a href="dashboard.html#edukasi-rsia" class="nav-item">Edukasi</a>
+          <a href="dashboard.html#tentang-rsia" class="nav-item">About Us</a>
+          <a href="preview.html" class="nav-item">Previews</a>
+          <a href="dashboard.html#kontak-rsia" class="nav-item">Contact Us</a>
+        <button class="btn-login">
+            <a href="portallogin.html">Login / Daftar</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <div class="page-hero">
+      <div class="hero-badge">
+        <i class="fa-solid fa-user-nurse"></i> Pengguna
+      </div>
+      <h1>Portal Pengguna</h1>
+      <p>Masuk atau daftarkan akun Pengguna RSIA Citra Bunda Medika</p>
+    </div>
+
+    <!-- MAIN -->
+    <main>
+      <div class="login-card">
+        <!-- Tab Header -->
+        <div class="tab-header">
+          <button
+            class="tab-btn active"
+            id="tab-login"
+            onclick="switchTab('login')"
+          >
+            <i class="fa-solid fa-right-to-bracket"></i> Masuk
+          </button>
+          <button class="tab-btn" id="tab-daftar" onclick="switchTab('daftar')">
+            <i class="fa-solid fa-user-plus"></i> Daftar
+          </button>
+        </div>
+
+        <!-- ===== PANEL MASUK ===== -->
+        <div class="tab-panel active" id="panel-login">
+          <div class="card-icon-top">
+            <div class="icon-circle">
+              <i class="fa-solid fa-user-nurse"></i>
+            </div>
+          </div>
+
+          <div class="panel-header" style="text-align: center">
+            <h2 style="justify-content: center">
+              <i class="fa-solid fa-right-to-bracket"></i> Masuk Akun Pengguna
+            </h2>
+            <p>Masukkan email dan password yang terdaftar</p>
+          </div>
+
+          <!-- Alert error -->
+          <div class="alert alert-error" id="loginAlert">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span id="loginAlertMsg">Email atau password salah.</span>
+          </div>
+
+          <div class="field">
+            <label
+              ><i class="fa-solid fa-envelope"></i> Email
+              <span class="req">*</span></label
+            >
+            <div class="input-icon-wrap">
+              <i class="fa-solid fa-envelope icon"></i>
+              <input
+                type="email"
+                id="loginEmail"
+                placeholder="email@example.com"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label
+              ><i class="fa-solid fa-lock"></i> Password
+              <span class="req">*</span></label
+            >
+            <div class="pw-wrap">
+              <input
+                type="password"
+                id="loginPassword"
+                placeholder="Masukkan password"
+              />
+              <button
+                type="button"
+                class="pw-toggle"
+                onclick="togglePw('loginPassword', this)"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="row-between">
+            <label>
+              <input type="checkbox" id="rememberMe" />
+              Ingat saya
+            </label>
+            <a href="#" class="link-pink" onclick="switchTab('forgot')"
+              >Lupa password?</a
+            >
+          </div>
+
+          <button class="btn-full btn-pink" onclick="doLogin()">
+            <i class="fa-solid fa-right-to-bracket"></i> Masuk
+          </button>
+
+          <div class="switch-text">
+            Belum punya akun?
+            <a href="#" onclick="switchTab('daftar')">Daftar sekarang</a>
+          </div>
+        </div>
+
+        <!-- ===== PANEL DAFTAR ===== -->
+        <div class="tab-panel" id="panel-daftar">
+          <div class="card-icon-top">
+            <div class="icon-circle"><i class="fa-solid fa-user-plus"></i></div>
+          </div>
+
+          <div class="panel-header" style="text-align: center">
+            <h2 style="justify-content: center">
+              <i class="fa-solid fa-user-nurse"></i> Daftar Akun Pengguna
+            </h2>
+            <p>Isi data awal Anda, lanjutkan ke formulir lengkap</p>
+          </div>
+
+          <div class="field">
+            <label
+              ><i class="fa-solid fa-user"></i> Nama Lengkap
+              <span class="req">*</span></label
+            >
+            <input type="text" id="regNama" placeholder="Nama sesuai KTP" />
+          </div>
+
+          <div class="field">
+            <label
+              ><i class="fa-solid fa-envelope"></i> Email
+              <span class="req">*</span></label
+            >
+            <div class="input-icon-wrap">
+              <i class="fa-solid fa-envelope icon"></i>
+              <input
+                type="email"
+                id="regEmail"
+                placeholder="email@example.com"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label
+              ><i class="fa-solid fa-phone"></i> No. Telepon
+              <span class="req">*</span></label
+            >
+            <div class="input-icon-wrap">
+              <i class="fa-solid fa-mobile-screen icon"></i>
+              <input type="tel" id="regTelp" placeholder="08xxxxxxxxxx" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label
+              ><i class="fa-solid fa-key"></i> Password
+              <span class="req">*</span></label
+            >
+            <div class="pw-wrap">
+              <input
+                type="password"
+                id="regPassword"
+                placeholder="Minimal 8 karakter"
+                oninput="checkRegPw()"
+              />
+              <button
+                type="button"
+                class="pw-toggle"
+                onclick="togglePw('regPassword', this)"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+            <div class="pw-strength-bars">
+              <div class="pw-bar" id="rBar1"></div>
+              <div class="pw-bar" id="rBar2"></div>
+              <div class="pw-bar" id="rBar3"></div>
+              <div class="pw-bar" id="rBar4"></div>
+            </div>
+            <div class="pw-strength-label" id="rStrLabel"></div>
+          </div>
+
+          <div class="field">
+            <label
+              ><i class="fa-solid fa-lock"></i> Konfirmasi Password
+              <span class="req">*</span></label
+            >
+            <div class="pw-wrap">
+              <input
+                type="password"
+                id="regPasswordConf"
+                placeholder="Ulangi password"
+                oninput="checkRegPwMatch()"
+              />
+              <button
+                type="button"
+                class="pw-toggle"
+                onclick="togglePw('regPasswordConf', this)"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+            <span class="field-hint" id="regPwHint"></span>
+          </div>
+
+          <div class="terms-box">
+            <label>
+              <input type="checkbox" id="regTerms" />
+              Saya menyetujui <a href="#">Syarat &amp; Ketentuan</a> serta
+              <a href="#">Kebijakan Privasi</a> RSIA Citra Bunda Medika.
+            </label>
+          </div>
+
+          <!-- Info lanjut ke form lengkap -->
+          <div
+            style="
+              margin-top: 12px;
+              padding: 12px 14px;
+              background: #fdf0f5;
+              border: 1px solid #f5c4d4;
+              border-radius: 8px;
+              font-size: 0.82rem;
+              color: #ae3c62;
+              line-height: 1.5;
+            "
+          >
+            <i class="fa-solid fa-circle-info" style="margin-right: 6px"></i>
+            Setelah mendaftar, Anda akan diarahkan ke
+            <strong>formulir data lengkap</strong> untuk melengkapi profil, NIK,
+            jabatan, riwayat, dan dokumen.
+          </div>
+
+          <button class="btn-full btn-navy" onclick="doRegister()">
+            <i class="fa-solid fa-arrow-right"></i> Lanjut ke Formulir Lengkap
+          </button>
+
+          <div class="switch-text">
+            Sudah punya akun?
+            <a href="#" onclick="switchTab('login')">Masuk sekarang</a>
+          </div>
+        </div>
+
+        <!-- ===== PANEL LUPA PASSWORD ===== -->
+        <div class="tab-panel" id="panel-forgot">
+          <div class="card-icon-top">
+            <div class="icon-circle"><i class="fa-solid fa-key"></i></div>
+          </div>
+
+          <div class="panel-header" style="text-align: center">
+            <h2 style="justify-content: center">
+              <i class="fa-solid fa-key"></i> Reset Password
+            </h2>
+            <p>Masukkan email terdaftar, kami kirimkan tautan reset</p>
+          </div>
+
+          <div class="alert alert-success" id="forgotSuccess">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Tautan reset password telah dikirim ke email Anda.</span>
+          </div>
+
+          <div class="field">
+            <label
+              ><i class="fa-solid fa-envelope"></i> Email Terdaftar
+              <span class="req">*</span></label
+            >
+            <div class="input-icon-wrap">
+              <i class="fa-solid fa-envelope icon"></i>
+              <input
+                type="email"
+                id="forgotEmail"
+                placeholder="email@example.com"
+              />
+            </div>
+          </div>
+
+          <button class="btn-full btn-pink" onclick="doForgot()">
+            <i class="fa-solid fa-paper-plane"></i> Kirim Tautan Reset
+          </button>
+
+          <div class="switch-text" style="margin-top: 14px">
+            <a href="#" onclick="switchTab('login')">
+              <i class="fa-solid fa-arrow-left" style="font-size: 0.75rem"></i>
+              Kembali ke halaman masuk
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /.login-card -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div>
+          <img
+            src="logorsia.jpeg"
+            alt="Logo RSIA Citra Bunda Medika"
+            class="footer-logo"
+          />
+          <p class="footer-desc">
+            Sahabat kesehatan ibu dan anak dengan pelayanan yang ramah, aman,
+            dan terpercaya.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-title-small">Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="#">Pusat Bantuan</a></li>
+            <li><a href="#">Privasi &amp; Data</a></li>
+            <li><a href="#">Kerja Sama Instansi</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title-small">Kontak Darurat</h4>
+          <p class="footer-contact">
+            <i class="fa-solid fa-phone"></i> Hotline RSIA: 088806474921
+          </p>
+          <p class="footer-contact">
+            <i class="fa-solid fa-envelope"></i> rsiacitrabundamedika@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 RSIA Citra Bunda Medika. Seluruh Hak Cipta Dilindungi.
+      </div>
+    </footer>
+
+    <script>
+      function switchTab(tab) {
+        ["login", "daftar", "forgot"].forEach((t) => {
+          document.getElementById("panel-" + t).classList.remove("active");
+        });
+        ["login", "daftar"].forEach((t) => {
+          const btn = document.getElementById("tab-" + t);
+          if (btn) btn.classList.remove("active");
+        });
+        document.getElementById("panel-" + tab).classList.add("active");
+        const activeBtn = document.getElementById("tab-" + tab);
+        if (activeBtn) activeBtn.classList.add("active");
+      }
+
+      function togglePw(id, btn) {
+        const el = document.getElementById(id);
+        const icon = btn.querySelector("i");
+        if (el.type === "password") {
+          el.type = "text";
+          icon.className = "fa-solid fa-eye-slash";
+        } else {
+          el.type = "password";
+          icon.className = "fa-solid fa-eye";
+        }
+      }
+
+      function checkRegPw() {
+        const v = document.getElementById("regPassword").value;
+        let s = 0;
+        if (v.length >= 8) s++;
+        if (/[A-Z]/.test(v)) s++;
+        if (/[0-9]/.test(v)) s++;
+        if (/[^A-Za-z0-9]/.test(v)) s++;
+        const colors = ["#d32f2f", "#f57c00", "#429ebd", "#e78baa"];
+        const labels = ["Sangat Lemah", "Cukup", "Kuat", "Sangat Kuat"];
+        for (let i = 1; i <= 4; i++) {
+          document.getElementById("rBar" + i).style.background =
+            i <= s ? colors[s - 1] : "#e5e7eb";
+        }
+        document.getElementById("rStrLabel").textContent = v
+          ? labels[s - 1] || ""
+          : "";
+        checkRegPwMatch();
+      }
+
+      function checkRegPwMatch() {
+        const pw = document.getElementById("regPassword").value;
+        const cpw = document.getElementById("regPasswordConf").value;
+        const hint = document.getElementById("regPwHint");
+        if (!cpw) {
+          hint.textContent = "";
+          return;
+        }
+        if (pw === cpw) {
+          hint.textContent = "✓ Password cocok";
+          hint.className = "field-hint success";
+        } else {
+          hint.textContent = "✗ Password tidak cocok";
+          hint.className = "field-hint error";
+        }
+      }
+
+     function doLogin() {
+  const email = document.getElementById("loginEmail").value.trim();
+  const pw = document.getElementById("loginPassword").value;
+  const alertEl = document.getElementById("loginAlert");
+  const msg = document.getElementById("loginAlertMsg");
+
+  if (!email || !pw) {
+    msg.textContent = "Email dan password wajib diisi.";
+    alertEl.classList.add("show");
+    return;
+  }
+
+  if (!email.includes("@")) {
+    msg.textContent = "Format email tidak valid.";
+    alertEl.classList.add("show");
+    return;
+  }
+
+  alertEl.classList.remove("show");
+
+  window.location.href = "./dashboard_user.html";
+}
+      function doRegister() {
+        const nama = document.getElementById("regNama").value.trim();
+        const email = document.getElementById("regEmail").value.trim();
+        const telp = document.getElementById("regTelp").value.trim();
+        const pw = document.getElementById("regPassword").value;
+        const cpw = document.getElementById("regPasswordConf").value;
+        const terms = document.getElementById("regTerms").checked;
+
+        if (!nama || !email || !telp || !pw) {
+          alert("Harap lengkapi semua kolom yang wajib diisi.");
+          return;
+        }
+        if (!email.includes("@")) {
+          alert("Format email tidak valid.");
+          return;
+        }
+        if (pw.length < 8) {
+          alert("Password minimal 8 karakter.");
+          return;
+        }
+        if (pw !== cpw) {
+          alert("Password dan konfirmasi tidak cocok.");
+          return;
+        }
+        if (!terms) {
+          alert("Harap setujui Syarat & Ketentuan.");
+          return;
+        }
+        // Lanjut ke form lengkap
+        window.location.href = "signin_user.html";
+      }
+
+      function doForgot() {
+        const email = document.getElementById("forgotEmail").value.trim();
+        if (!email || !email.includes("@")) {
+          alert("Masukkan email yang valid.");
+          return;
+        }
+        document.getElementById("forgotSuccess").classList.add("show");
+        document.getElementById("forgotEmail").value = "";
+      }
+    </script>
+  </body>
+</html>

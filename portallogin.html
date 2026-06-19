@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RSIA Citra Bunda Medika</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style1.css" />
+    <link rel="stylesheet" href="styleheader.css" />
+    <link rel="stylesheet" href="styledashboard.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <img
+            src="logorsia.jpeg"
+            alt="Logo RSIA Citra Bunda Medika"
+            class="nav-logo"
+          />
+
+          <span class="brand-text"><span class="nav-brand-dark"></span></span>
+        </div>
+
+        <div class="nav-links">
+         <a href="dashboard.html" class="nav-item">Beranda</a>
+          <a href="dashboard.html#edukasi-rsia" class="nav-item">Edukasi</a>
+          <a href="dashboard.html#tentang-rsia" class="nav-item">About Us</a>
+          <a href="preview.html" class="nav-item">Previews</a>
+          <a href="dashboard.html#kontak-rsia" class="nav-item">Contact Us</a>
+        <button class="btn-login">
+            <a href="portallogin.html">Login / Daftar</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+
+    <!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portal Login RSIA</title>
+
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+
+<style>
+
+/* ======================
+   BODY
+====================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#fff;
+}
+
+/* ======================
+   PORTAL SECTION
+====================== */
+
+.portal-section{
+
+    min-height:100vh;
+
+    padding:140px 8% 80px;
+
+    background:#fff;
+}
+
+/* title */
+.portal-header{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.portal-header h2{
+
+    font-size:42px;
+    font-weight:800;
+
+    color:#E86A92;
+
+    margin-bottom:14px;
+}
+
+.portal-header p{
+
+    color:#5f6d7a;
+    font-size:18px;
+}
+
+/* line */
+.portal-line{
+
+    width:100%;
+    height:1px;
+
+    background:#ececec;
+
+    margin:40px auto 0;
+}
+
+/* ======================
+   CARD WRAPPER
+====================== */
+
+.portal-wrapper{
+
+    display:flex;
+    justify-content:center;
+    gap:40px;
+
+    flex-wrap:wrap;
+}
+
+/* ======================
+   CARD
+====================== */
+
+.portal-card{
+
+    width:430px;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    transition:.35s ease;
+
+    box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.06);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* hover */
+.portal-card:hover{
+
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 22px 45px
+    rgba(232,106,146,.15);
+}
+
+/* top border */
+.portal-card.tenaga{
+    border-top:5px solid #4EB6B0;
+}
+
+.portal-card.pasien{
+    border-top:5px solid #E86A92;
+}
+
+/* icon box */
+.portal-icon{
+
+    width:90px;
+    height:90px;
+
+    border-radius:22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:auto auto 28px;
+}
+
+/* icon bg */
+.tenaga .portal-icon{
+    background:
+    rgba(78,182,176,.12);
+}
+
+.pasien .portal-icon{
+    background:
+    rgba(232,106,146,.12);
+}
+
+/* icon */
+.portal-icon i{
+    font-size:38px;
+}
+
+.tenaga .portal-icon i{
+    color:#4EB6B0;
+}
+
+.pasien .portal-icon i{
+    color:#E86A92;
+}
+
+/* title */
+.portal-card h3{
+
+    font-size:36px;
+    font-weight:800;
+
+    margin-bottom:12px;
+
+    color:#27374D;
+}
+
+/* desc */
+.portal-card p{
+
+    color:#667788;
+
+    line-height:1.8;
+    font-size:16px;
+
+    margin-bottom:30px;
+}
+
+/* ======================
+   BUTTONS
+====================== */
+
+.portal-buttons{
+
+    display:flex;
+    justify-content:center;
+    gap:16px;
+}
+
+/* btn */
+.portal-btn{
+
+    border:none;
+    outline:none;
+
+    padding:14px 34px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:700;
+
+    transition:.3s ease;
+
+    color:white;
+
+    text-decoration:none;
+}
+
+/* tenaga */
+.tenaga .portal-btn{
+    background:#4EB6B0;
+}
+
+/* pasien */
+.pasien .portal-btn{
+    background:#E86A92;
+}
+
+/* hover */
+.portal-btn:hover{
+
+    transform:
+    translateY(-4px);
+
+    opacity:.9;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media(max-width:768px){
+
+.portal-section{
+    padding:120px 6% 60px;
+}
+
+.portal-header h2{
+    font-size:30px;
+}
+
+.portal-card{
+    width:100%;
+}
+
+.portal-card h3{
+    font-size:28px;
+}
+
+.portal-buttons{
+    flex-direction:column;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="portal-section">
+
+    <!-- TITLE -->
+    <div class="portal-header">
+
+        <h2>
+            Akses Portal Sesuai Peran Anda
+        </h2>
+
+        <p>
+            Pilih akses dashboard untuk Login
+            sesuai kebutuhan layanan RSIA
+        </p>
+
+        <div class="portal-line"></div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="portal-wrapper">
+
+        <!-- TENAGA KESEHATAN -->
+        <div class="portal-card tenaga">
+
+            <div class="portal-icon">
+                <i class="fas fa-user-doctor"></i>
+            </div>
+
+            <h3>Tenaga Kesehatan</h3>
+
+            <p>
+                Portal khusus dokter,
+                bidan, perawat, dan
+                tenaga medis RSIA
+                Citra Bunda Medika.
+            </p>
+
+            <div class="portal-buttons">
+
+                <a href="login_nakes.html" class="portal-btn">
+                    Login
+                </a>
+
+                <a href="sigin_nakes.html" class="portal-btn">
+                    Daftar
+                </a>
+            </div>
+
+        </div>
+
+        <!-- PASIEN -->
+        <div class="portal-card pasien">
+
+            <div class="portal-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+
+            <h3>Pasien</h3>
+
+            <p>
+                Portal pasien untuk
+                booking dokter,
+                melihat rekam medis,
+                dan layanan kesehatan.
+            </p>
+
+            <div class="portal-buttons">
+
+                <a href="login_user.html" class="portal-btn">
+                    Login
+                </a>
+
+                <a href="signin_user.html" class="portal-btn">
+                    Daftar
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
+
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div>
+          <img
+            src="logorsia.jpeg"
+            alt="Logo RSIA Citra Bunda Medika"
+            class="footer-logo"
+          />
+          <p class="footer-desc">
+            Sahabat kesehatan ibu dan anak dengan pelayanan yang ramah, aman,
+            dan terpercaya.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title-small">Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="#">Pusat Bantuan</a></li>
+            <li><a href="#">Privasi & Data</a></li>
+            <li><a href="#">Kerja Sama Instansi</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title-small">Kontak Darurat</h4>
+          <p class="footer-contact">
+            <i class="fa-solid fa-phone"></i>
+            Hotline RSIA: 088806474921
+          </p>
+          <p class="footer-contact">
+            <i class="fa-solid fa-envelope"></i>
+            rsiacitrabundamedika@gmail.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 RSIA Citra Bunda Medika. Seluruh Hak Cipta Dilindungi.
+      </div>
+    </footer>
+  </body>
+</html>

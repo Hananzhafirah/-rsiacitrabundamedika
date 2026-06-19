@@ -1,0 +1,769 @@
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TBC-Care | Solusi Terpadu Penanggulangan TBC</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+   <link rel="stylesheet" href="styleheader.css" />
+   
+   
+   <script>
+flatpickr("#multi-visit-date", {
+    mode: "multiple",
+    dateFormat: "d-m-Y",
+    conjunction: ", ",
+    minDate: "today",
+    allowInput: true
+});
+</script>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <img
+            src="logo.jpeg"
+            alt="Logo TBC"
+            class="nav-logo"
+            style="height: 50px; width: auto"
+          />
+          <span class="brand-text"><span class="nav-brand-dark"></span></span>
+        </div>
+
+        <div class="nav-links">
+           <a href="/muti.html" class="nav-item">Beranda</a>
+          <a href="/Untitled-1.html" class="nav-item">Edukasi</a>
+          <button class="btn-login">Login / Daftar</button>
+        </div>
+      </div>
+    </nav>
+
+<div class="dashboard-wrapper">
+    <aside class="sidebar">
+        <div class="sidebar-item" id="menu-data-mitra">
+            <i class="fa-solid fa-chevron-right"></i> Data Mitra
+        </div>
+        <div class="sidebar-item" id="menu-tes-tbc">
+            <i class="fa-solid fa-chevron-right"><a href="#section-tes-tbc"></a></i> Tes TBC Tersedia
+        </div>
+        <div class="sidebar-item" id="menu-rawat-inap">
+            <i class="fa-solid fa-chevron-right"></i> Rawat Inap
+        </div>
+        <div class="sidebar-item" id="menu-rawat-jalan">
+            <i class="fa-solid fa-chevron-right"></i> Rawat Jalan
+        </div>
+        <div class="sidebar-item" id="menu-farmasi">
+            <i class="fa-solid fa-chevron-right"></i> Farmasi
+        </div>
+    </aside>
+
+    
+<main class="content-area">
+
+<section class="admin-section" id="section-data-mitra">
+    <div class="section-header">
+        <h2><i class="fa-solid fa-hospital-user"></i> Profil Data Mitra</h2>
+        <p>Lengkapi informasi identitas fasilitas kesehatan Anda untuk ditampilkan kepada publik.</p>
+    </div>
+
+    <form class="hospital-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="mitra-name"><i class="fa-solid fa-building-medical"></i> Nama Fasilitas Kesehatan</label>
+                <input type="text" id="mitra-name" placeholder="Contoh: RSUD Depok Jaya" class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="mitra-status"><i class="fa-solid fa-landmark"></i> Status Kepemilikan</label>
+                <select id="mitra-status" class="form-input">
+                    <option value="" disabled selected>-- Pilih Status --</option>
+                    <option value="negeri">Negeri (Pemerintah)</option>
+                    <option value="swasta">Swasta</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="mitra-akreditasi"><i class="fa-solid fa-award"></i> Tingkat Akreditasi</label>
+                <select id="mitra-akreditasi" class="form-input">
+                    <option value="" disabled selected>-- Pilih Akreditasi --</option>
+                    <option value="paripurna">Paripurna (Bintang 5)</option>
+                    <option value="utama">Utama (Bintang 4)</option>
+                    <option value="madya">Madya (Bintang 3)</option>
+                    <option value="perdana">Perdana</option>
+                    <option value="belum">Belum Terakreditasi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mitra-type"><i class="fa-solid fa-tags"></i> Jenis Instansi</label>
+                <select id="mitra-type" class="form-input">
+                    <option value="rs">Rumah Sakit</option>
+                    <option value="klinik">Klinik Pratama</option>
+                    <option value="puskesmas">Puskesmas</option>
+                </select>
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label for="mitra-address"><i class="fa-solid fa-location-dot"></i> Alamat Lengkap</label>
+            <textarea id="mitra-address" rows="2" placeholder="Jl. Margonda Raya No. 123..." class="form-input"></textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="mitra-phone"><i class="fa-solid fa-phone"></i> Nomor WhatsApp/Telepon</label>
+                <input type="text" id="mitra-phone" placeholder="0812xxxx" class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="mitra-email"><i class="fa-solid fa-envelope"></i> Email Operasional</label>
+                <input type="email" id="mitra-email" placeholder="admin@mitra.com" class="form-input">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fa-solid fa-clock"></i> Jam Operasional Umum</label>
+            <input type="text" placeholder="Contoh: Senin - Minggu (24 Jam)" class="form-input">
+        </div>
+
+        <div class="form-group">
+            <label class="label-title"><i class="fa-solid fa-hand-holding-hand"></i> Penerima Asuransi Kesehatan</label>
+            <div class="facilities-grid">
+                <label class="check-item"><input type="checkbox"> BPJS Kesehatan</label>
+                <label class="check-item"><input type="checkbox"> Jamkesda</label>
+                <label class="check-item"><input type="checkbox"> Asuransi Mandiri</label>
+                <label class="check-item"><input type="checkbox"> Prudential</label>
+                <label class="check-item"><input type="checkbox"> Allianz</label>
+                <label class="check-item"><input type="checkbox"> Admedika</label>
+                <label class="check-item"><input type="checkbox"> Umum (Tunai)</label>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-save">Update Profil Mitra</button>
+            <button type="reset" class="btn-cancel">Batal</button>
+        </div>
+    </form>
+</section>
+
+   <section class="admin-section" id="section-tes-tbc" style="display:none;">
+
+<div class="section-header">
+<h2><i class="fa-solid fa-microscope"></i> Manajemen Tes TBC</h2>
+<p>Kelola layanan pemeriksaan TBC yang tersedia di fasilitas kesehatan Anda.</p>
+</div>
+
+<form class="hospital-form">
+
+<div id="daftar-tes">
+
+<div class="tes-item">
+
+<div class="form-row">
+
+<div class="form-group">
+<label><i class="fa-solid fa-vial"></i> Jenis Tes</label>
+<select class="form-input">
+<option disabled selected>Pilih jenis tes</option>
+<option>Tes BTA / ZN</option>
+<option>GeneXpert / TCM</option>
+<option>Kultur Bakteri TBC</option>
+<option>Rontgen Paru</option>
+<option>CT Scan Paru</option>
+<option>Tes Mantoux (TST)</option>
+<option>IGRA (Tes Darah TBC)</option>
+</select>
+</div>
+
+<div class="form-group">
+<label><i class="fa-solid fa-tags"></i> Harga Tes (Rp)</label>
+<input type="text" placeholder="Contoh: 500.000" class="form-input">
+</div>
+
+</div>
+
+<div class="form-group">
+<label><i class="fa-solid fa-comment-medical"></i> Keterangan Tes</label>
+<textarea rows="2" placeholder="Contoh: Tes tersedia setiap hari kerja..." class="form-input"></textarea>
+</div>
+
+<hr class="divider">
+
+</div>
+
+</div>
+
+<div class="form-actions">
+
+<button type="button" class="btn-add-test" onclick="tambahTes()">
+<i class="fa-solid fa-plus"></i> Tambah Tes
+</button>
+
+<button type="submit" class="btn-save">
+<i class="fa-solid fa-floppy-disk"></i> Simpan Data Tes
+</button>
+
+</div>
+
+</form>
+
+</section>
+
+    <section class="admin-section" id="section-rawat-inap">
+        <div class="section-header">
+            <h2><i class="fa-solid fa-hospital"></i> Update Ketersediaan Kamar</h2>
+            <p>Kelola data kapasitas bed, harga, dan fasilitas untuk kelas terpilih.</p>
+        </div>
+
+        <form class="hospital-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="room-class"><i class="fa-solid fa-layer-group"></i> Pilih Kelas Kamar</label>
+                    <select id="room-class" name="room-class" class="form-input">
+                        <option value="" disabled selected>-- Pilih Kelas --</option>
+                        <option value="vviip">VVIIP</option>
+                        <option value="vip">VIP</option>
+                        <option value="kelas-1">Kelas I</option>
+                        <option value="kelas-2">Kelas II</option>
+                        <option value="kelas-3">Kelas III</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="room-price"><i class="fa-solid fa-tags"></i> Harga per Malam (Rp)</label>
+                    <input type="text" id="room-price" placeholder="Contoh: 750.000" class="form-input price-input">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="room-qty"><i class="fa-solid fa-door-open"></i> Total Ruangan</label>
+                    <input type="number" id="room-qty" placeholder="0" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="bed-available"><i class="fa-solid fa-bed"></i> Bed Tersedia</label>
+                    <input type="number" id="bed-available" placeholder="0" class="form-input">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="label-title"><i class="fa-solid fa-star"></i> Fasilitas Kamar</label>
+                <div class="facilities-grid">
+                    <label class="check-item"><input type="checkbox"> AC</label>
+                    <label class="check-item"><input type="checkbox"> Kipas Angin</label>
+                    <label class="check-item"><input type="checkbox"> TV</label>
+                    <label class="check-item"><input type="checkbox"> Kamar Mandi Dalam</label>
+                    <label class="check-item"><input type="checkbox"> Shower </label>
+                    <label class="check-item"><input type="checkbox"> Water Heater</label>
+                    <label class="check-item"><input type="checkbox"> Sofa Penunggu</label>
+                    <label class="check-item"><input type="checkbox"> Kasur tambahan</label>
+                    <label class="check-item"><input type="checkbox"> Lemari mini</label>
+                    <label class="check-item"><input type="checkbox"> Makan 3x/Hari</label>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-save">Simpan Data Kamar</button>
+                <button type="reset" class="btn-cancel">Batal</button>
+        </div>
+    </form>
+    <div class="table-container" style="margin-top: 30px;">
+    <h3><i class="fa-solid fa-list-check"></i> Daftar Kamar Tersimpan</h3>
+    <table class="data-table" id="room-table" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+        <thead>
+            <tr style="background-color: #f8f9fa; border-bottom: 2px solid #dee2e6; text-align: left;">
+                <th style="padding: 12px;">Kelas</th>
+                <th style="padding: 12px;">Harga/Malam</th>
+                <th style="padding: 12px;">Ruangan</th>
+                <th style="padding: 12px;">Bed Tersedia</th>
+                <th style="padding: 12px;">Fasilitas</th>
+                <th style="padding: 12px;">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+</div>
+</section>
+
+    <section class="admin-section" id="section-rawat-jalan">
+        <div class="section-header">
+            <h2><i class="fa-solid fa-user-nurse"></i> Penjadwalan Kunjungan Ners</h2>
+            <p>Daftarkan ketersediaan perawat harian untuk kunjungan ke rumah pasien.</p>
+        </div>
+
+        <form class="hospital-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nurse-name"><i class="fa-solid fa-id-card"></i> Nama Perawat</label>
+                    <input type="text" id="nurse-name" placeholder="Nama Lengkap & Gelar" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="nurse-price"><i class="fa-solid fa-hand-holding-dollar"></i> Biaya per Kunjungan</label>
+                    <input type="text" id="nurse-price" placeholder="Contoh: 150.000" class="form-input price-input">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="multi-visit-date"><i class="fa-solid fa-calendar-days"></i> Pilih Tanggal Tugas (Bisa > 1)</label>
+                    <input type="text" id="multi-visit-date" class="form-input" placeholder="Pilih satu atau beberapa tanggal...">
+                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-clock"></i> Jam Operasional Tersedia</label>
+                    <div class="time-slots-grid">
+                        <label class="time-badge"><input type="checkbox"> 08:00 - 10:00</label>
+                        <label class="time-badge"><input type="checkbox"> 10:00 - 12:00</label>
+                        <label class="time-badge"><input type="checkbox"> 13:00 - 15:00</label>
+                        <label class="time-badge"><input type="checkbox"> 15:00 - 17:00</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nurse-note"><i class="fa-solid fa-comment-medical"></i> Catatan/Cakupan Layanan</label>
+                <textarea id="nurse-note" rows="3" placeholder="Misal: Perawatan luka, pasang infus, pengecekan TBC berkala..." class="form-input"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-save">Daftarkan Jadwal Ners</button>
+                <button type="reset" class="btn-cancel">Batal</button>
+            </div>
+            <script>
+    // Inisialisasi untuk pilihan banyak tanggal
+    flatpickr("#multi-visit-date", {
+        mode: "multiple",
+        dateFormat: "d-m-Y",
+        conjunction: ", ",
+        minDate: "today",
+        allowInput: true
+    });
+</script>
+        </form>
+        <div class="table-container" style="margin-top: 30px;">
+    <h3><i class="fa-solid fa-clipboard-list"></i> Daftar Jadwal Kunjungan Ners</h3>
+    <table class="data-table" id="nurse-table" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+        <thead>
+            <tr style="background-color: #f8f9fa; border-bottom: 2px solid #dee2e6; text-align: left;">
+                <th style="padding: 12px;">Nama Perawat</th>
+                <th style="padding: 12px;">Biaya</th>
+                <th style="padding: 12px;">Tanggal Tugas</th>
+                <th style="padding: 12px;">Jam Kerja</th>
+                <th style="padding: 12px;">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+</div>
+    </section>
+
+<!-- FARMASI -->
+<section class="admin-section" id="section-farmasi" style="display:none;">
+    <div class="section-header">
+        <h2><i class="fa-solid fa-pills"></i> Manajemen Farmasi</h2>
+        <p>Daftarkan obat yang tersedia di fasilitas kesehatan Anda beserta harga dan stoknya.</p>
+    </div>
+
+    <form class="hospital-form">
+
+        <div id="daftar-obat">
+
+            <div class="obat-item">
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-capsules"></i> Nama Obat</label>
+                        <input type="text" placeholder="Contoh: Rifampicin" class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-tags"></i> Harga Obat (Rp)</label>
+                        <input type="text" placeholder="Contoh: 25.000" class="form-input">
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-boxes-stacked"></i> Stok Tersedia</label>
+                        <input type="number" placeholder="Jumlah stok" class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-layer-group"></i> Kategori Obat</label>
+                        <select class="form-input">
+                            <option disabled selected>Pilih kategori</option>
+                            <option>Obat TBC</option>
+                            <option>Antibiotik</option>
+                            <option>Antiviral</option>
+                            <option>Antijamur</option>
+                            <option>Analgesik (Pereda Nyeri)</option>
+                            <option>Antipiretik (Penurun Demam)</option>
+                            <option>Vitamin & Suplemen</option>
+                            <option>Obat Saluran Pernapasan</option>
+                            <option>Obat Lambung & Pencernaan</option>
+                            <option>Obat Injeksi</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <hr class="divider">
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+            <button type="button" class="btn-add-obat" onclick="tambahObat()">
+                <i class="fa-solid fa-plus"></i> Tambah Obat
+            </button>
+
+            <button type="submit" class="btn-save">
+                <i class="fa-solid fa-floppy-disk"></i> Simpan Data Farmasi
+            </button>
+        </div>
+
+    </form>
+</section>
+
+</main>
+
+</div> 
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+
+  <div class="footer-container">
+
+    <div>
+      <img src="LogoPD.png" alt="PeduliTBDepok Logo" class="footer-logo">
+      <p class="footer-desc">
+        Membangun ekosistem kesehatan digital yang inklusif untuk masa depan Indonesia tanpa TBC.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="footer-title-small">Navigasi</h4>
+      <ul class="footer-links">
+        <li><a href="#">Pusat Bantuan</a></li>
+        <li><a href="#">Privasi & Data</a></li>
+        <li><a href="#">Kerja Sama Instansi</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-title-small">Kontak Darurat</h4>
+      <p class="footer-contact">
+        <i class="fa-solid fa-phone"></i> Hotline TBC: 088806474921
+      </p>
+      <p class="footer-contact">
+        <i class="fa-solid fa-envelope"></i> faridayenasih@mail.ugm.ac.id
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-content">
+    © 2026 PeduliTBDepok Platform. Seluruh Hak Cipta Dilindungi.
+    </div>
+  </div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Buat daftar hubungan antara ID Menu dan ID Section
+    const navMap = {
+        "menu-data-mitra": "section-data-mitra",
+        "menu-tes-tbc": "section-tes-tbc",
+        "menu-rawat-inap": "section-rawat-inap",
+        "menu-rawat-jalan": "section-rawat-jalan",
+        "menu-farmasi": "section-farmasi",
+    };
+
+    // 2. Fungsi untuk mengatur perpindahan
+    function switchPage(activeMenuId) {
+        // Ambil ID Section yang akan ditampilkan
+        const targetSectionId = navMap[activeMenuId];
+
+        // Sembunyikan SEMUA section
+        document.querySelectorAll(".admin-section").forEach(section => {
+            section.style.display = "none";
+        });
+
+        // Tampilkan hanya section yang diklik
+        document.getElementById(targetSectionId).style.display = "block";
+
+        // Update tampilan menu sidebar (tambah class active)
+        document.querySelectorAll(".sidebar-item").forEach(item => {
+            item.classList.remove("active");
+        });
+        document.getElementById(activeMenuId).classList.add("active");
+    }
+
+    // 3. Pasang pendengar klik pada setiap menu
+    Object.keys(navMap).forEach(menuId => {
+        const menuElement = document.getElementById(menuId);
+        if (menuElement) {
+            menuElement.addEventListener("click", function() {
+                switchPage(menuId);
+            });
+        }
+    });
+
+    // 4. Inisialisasi Flatpickr agar tidak rusak saat menu dipindah
+    flatpickr("#multi-visit-date", {
+        mode: "multiple",
+        dateFormat: "d-m-Y",
+        minDate: "today"
+    });
+});
+
+// tabel rawat inap
+const roomForm = document.querySelector('#section-rawat-inap .hospital-form');
+const roomTableBody = document.querySelector('#room-table tbody');
+
+roomForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // Mencegah reload halaman
+
+    // 1. Ambil data dari input
+    const roomClass = document.getElementById('room-class').value;
+    const roomPrice = document.getElementById('room-price').value;
+    const roomQty = document.getElementById('room-qty').value;
+    const bedAvailable = document.getElementById('bed-available').value;
+
+    // 2. Ambil fasilitas yang dicentang
+    const selectedFacilities = [];
+    document.querySelectorAll('#section-rawat-inap .check-item input:checked').forEach((checkbox) => {
+        selectedFacilities.push(checkbox.parentElement.textContent.trim());
+    });
+
+    // 3. Validasi sederhana
+    if (!roomClass || !roomPrice) {
+        alert("Mohon isi Kelas Kamar dan Harga!");
+        return;
+    }
+
+    // 4. Buat baris tabel baru
+    const newRow = document.createElement('tr');
+    newRow.style.borderBottom = "1px solid #eee";
+    
+    newRow.innerHTML = `
+        <td style="padding: 12px; font-weight: bold;">${roomClass.toUpperCase()}</td>
+        <td style="padding: 12px;">Rp ${roomPrice}</td>
+        <td style="padding: 12px;">${roomQty}</td>
+        <td style="padding: 12px;">${bedAvailable}</td>
+        <td style="padding: 12px; font-size: 12px; color: #666;">${selectedFacilities.join(', ') || '-'}</td>
+        <td style="padding: 12px;">
+            <button class="btn-delete" style="color: red; border: none; background: none; cursor: pointer;">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </td>
+    `;
+
+    // 5. Masukkan ke tabel
+    roomTableBody.appendChild(newRow);
+
+    // 6. Reset form setelah simpan
+    roomForm.reset();
+    alert("Data kamar berhasil ditambahkan ke tabel!");
+});
+
+// Fungsi hapus baris
+roomTableBody.addEventListener('click', function(e) {
+    if (e.target.closest('.btn-delete')) {
+        if (confirm("Hapus data ini?")) {
+            e.target.closest('tr').remove();
+        }
+    }
+});
+
+// tabel rawat jalan
+const nurseForm = document.querySelector('#section-rawat-jalan .hospital-form');
+const nurseTableBody = document.querySelector('#nurse-table tbody');
+
+nurseForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // Mencegah reload halaman
+
+    // 1. Ambil data dari input
+    const nurseName = document.getElementById('nurse-name').value;
+    const nursePrice = document.getElementById('nurse-price').value;
+    const visitDates = document.getElementById('multi-visit-date').value;
+
+    // 2. Ambil Jam Operasional yang dicentang
+    const selectedSlots = [];
+    document.querySelectorAll('#section-rawat-jalan .time-badge input:checked').forEach((checkbox) => {
+        // Mengambil teks jam dari label (misal: 08:00 - 10:00)
+        selectedSlots.push(checkbox.parentElement.textContent.trim());
+    });
+
+    // 3. Validasi sederhana
+    if (!nurseName || !nursePrice || !visitDates) {
+        alert("Mohon lengkapi Nama, Biaya, dan Tanggal!");
+        return;
+    }
+
+    // 4. Buat baris tabel baru secara dinamis
+    const newRow = document.createElement('tr');
+    newRow.style.borderBottom = "1px solid #eee";
+    
+    newRow.innerHTML = `
+        <td style="padding: 12px;"><strong>${nurseName}</strong></td>
+        <td style="padding: 12px;">Rp ${nursePrice}</td>
+        <td style="padding: 12px; font-size: 13px;">${visitDates}</td>
+        <td style="padding: 12px; font-size: 13px;">${selectedSlots.join(', ') || '-'}</td>
+        <td style="padding: 12px;">
+            <button class="btn-delete-nurse" style="color: #e74c3c; border: none; background: none; cursor: pointer;">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+        </td>
+    `;
+
+    // 5. Masukkan ke tabel
+    nurseTableBody.appendChild(newRow);
+
+    // 6. Reset form setelah berhasil
+    nurseForm.reset();
+    alert("Jadwal perawat berhasil disimpan!");
+});
+
+// Fungsi untuk menghapus baris di tabel rawat jalan
+nurseTableBody.addEventListener('click', function(e) {
+    if (e.target.closest('.btn-delete-nurse')) {
+        if (confirm("Apakah Anda yakin ingin menghapus jadwal perawat ini?")) {
+            e.target.closest('tr').remove();
+        }
+    }
+});
+</script>
+<script>
+function toggleHarga(id, show){
+    const harga = document.getElementById(id);
+
+    if(show){
+        harga.style.display = "block";
+    } else {
+        harga.style.display = "none";
+    }
+}
+</script>
+<script>
+
+function tambahObat(){
+
+const container = document.getElementById("daftar-obat");
+
+const html = `
+<div class="obat-item">
+
+<div class="form-row">
+
+<div class="form-group">
+<label><i class="fa-solid fa-capsules"></i> Nama Obat</label>
+<input type="text" placeholder="Contoh: Rifampicin" class="form-input">
+</div>
+
+<div class="form-group">
+<label><i class="fa-solid fa-tags"></i> Harga Obat (Rp)</label>
+<input type="text" placeholder="Contoh: 25.000" class="form-input">
+</div>
+
+</div>
+
+<div class="form-row">
+
+<div class="form-group">
+<label><i class="fa-solid fa-boxes-stacked"></i> Stok Tersedia</label>
+<input type="number" placeholder="Jumlah stok" class="form-input">
+</div>
+
+<div class="form-group">
+<label><i class="fa-solid fa-layer-group"></i> Kategori Obat</label>
+<select class="form-input">
+<option disabled selected>Pilih kategori</option>
+<option>Obat TBC</option>
+<option>Antibiotik</option>
+<option>Antiviral</option>
+<option>Antijamur</option>
+<option>Analgesik (Pereda Nyeri)</option>
+<option>Antipiretik (Penurun Demam)</option>
+<option>Vitamin & Suplemen</option>
+<option>Obat Saluran Pernapasan</option>
+<option>Obat Lambung & Pencernaan</option>
+<option>Obat Injeksi</option>
+</select>
+</div>
+
+</div>
+
+<hr class="divider">
+
+</div>
+`;
+
+container.insertAdjacentHTML("beforeend", html);
+
+}
+
+</script>
+
+<script>
+
+function tambahTes(){
+
+const container = document.getElementById("daftar-tes");
+
+const html = `
+
+<div class="tes-item">
+
+<div class="form-row">
+
+<div class="form-group">
+<label><i class="fa-solid fa-vial"></i> Jenis Tes</label>
+<select class="form-input">
+<option disabled selected>Pilih jenis tes</option>
+<option>Tes Akulturasi</option>
+<option>Tes ZN</option>
+<option>CT Scan</option>
+<option>GeneXpert</option>
+<option>Rontgen Paru</option>
+</select>
+</div>
+
+<div class="form-group">
+<label><i class="fa-solid fa-tags"></i> Harga Tes (Rp)</label>
+<input type="text" placeholder="Contoh: 500.000" class="form-input">
+</div>
+
+</div>
+
+<div class="form-group">
+<label><i class="fa-solid fa-comment-medical"></i> Keterangan Tes</label>
+<textarea rows="2" placeholder="Contoh: Tes tersedia setiap hari kerja..." class="form-input"></textarea>
+</div>
+
+<hr class="divider">
+
+</div>
+
+`;
+
+container.insertAdjacentHTML("beforeend", html);
+
+}
+
+</script>
+</body>
+</html>

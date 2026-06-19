@@ -1,0 +1,297 @@
+<!--- FLOW PENGAJUAN TES --->
+        <!-- FLOW AJUKAN TES -->
+        <section id="section-test" class="hidden">
+            <div class="booking-flow-container">
+                <div class="progress-stepper">
+                    <div class="step-item active" id="t-0">1. Tes</div>
+                    <div class="step-item " id="t-1">2. RS</div>
+                    <div class="step-item " id="t-2">3. Jadwal</div>
+                    <div class="step-item " id="t-3">4. Bayar</div>
+                </div>
+
+
+                <!-- STEP 1 PILIH TES -->
+                <div id="test-step-0">
+                    <h3 class="step-title">Pilih Jenis Tes TBC</h3>
+                    <div class="method-options">
+                        <div class="method-card" onclick="selectTest('Kultur')">
+                            <i class="fa-solid fa-flask"></i>
+                            <h4>Tes Kultur</h4>
+                            <p>Pemeriksaan paling akurat</p>
+                        </div>
+                        <div class="method-card" onclick="selectTest('ZN')">
+                            <i class="fa-solid fa-microscope"></i>
+                            <h4>Pewarnaan ZN</h4>
+                            <p>Pemeriksaan mikroskopis</p>
+                        </div>
+                        <div class="method-card" onclick="selectTest('TCM')">
+                            <i class="fa-solid fa-dna"></i>
+                            <h4>Tes Molekuler TCM</h4>
+                            <p>Deteksi DNA bakteri TBC</p>
+                        </div>
+                    </div>
+                    <button class="btn-text-cancel" onclick="backHome()">Batalkan</button>
+                </div>
+
+                <!-- STEP 2 PILIH RS -->
+                <div id="test-step-1" class="hidden">
+                    <h3 class="step-title">Pilih Rumah Sakit</h3>
+                    <div class="doctor-option" onclick="selectHospital('RSUD Depok Jaya')">
+                        <h4>RSUD Depok Jaya</h4>
+                        <p>Tersedia Tes TBC</p>
+                    </div>
+                    <div class="doctor-option" onclick="selectHospital('RS Bhayangkara')">
+                        <h4>RS Bhayangkara</h4>
+                        <p>Tersedia Tes TBC</p>
+                    </div>
+                    <div class="doctor-option" onclick="selectHospital('RS Mitra Keluarga')">
+                        <h4>RS Mitra Keluarga</h4>
+                        <p>Tersedia Tes TBC</p>
+                    </div>
+                    <button class="btn-text-cancel" onclick="goTestStep(0)">Kembali</button>
+                </div>
+
+                <!-- STEP 3 PILIH JADWAL -->
+<div id="test-step-2" class="hidden">
+
+    <h3 class="step-title">Pilih Tanggal & Jam Kedatangan</h3>
+
+    <!-- INPUT TANGGAL -->
+    <input type="date" id="test-tanggal" class="input-field">
+
+    <!-- PILIH JAM -->
+    <div class="time-grid" style="margin-top:15px;">
+        <button class="time-slot" onclick="selectTestTime('09:00',this)">09:00</button>
+        <button class="time-slot" onclick="selectTestTime('11:00',this)">11:00</button>
+        <button class="time-slot" onclick="selectTestTime('14:00',this)">14:00</button>
+    </div>
+
+    <button class="btn-apply" onclick="goTestStep(3)">Lanjut Pembayaran</button>
+    <button class="btn-text-cancel" onclick="goTestStep(1)">Kembali</button>
+
+</div>
+
+                <!-- STEP 4 PEMBAYARAN TES -->
+                <div id="test-step-3" class="hidden">
+                    <h3 class="step-title">Metode Pembayaran</h3>
+                    <div class="payment-cards-group">
+                        <!-- QRIS -->
+                        <div class="payment-card payment-card-interactive" onclick="selectTestPayment('qris')">
+                            <input type="radio" name="paytest" id="paytest_qris" checked>
+                            <label for="paytest_qris">
+                                <i class="fa-solid fa-qrcode"></i>
+                                QRIS / E-Wallet (Gopay, OVO, Dana)
+                            </label>
+                        </div>
+                        <!-- QR IMAGE -->
+                        <div id="test-qris-area" class="qris-container">
+                            <div class="qris-frame">
+                                <img src="qrisdummy.jpg" class="qris-img">
+                            </div>
+                            <p class="qris-instruction">Pindai kode QR untuk membayar</p>
+                        </div>
+                        <!-- VA -->
+                        <div class="payment-card payment-card-interactive" onclick="selectTestPayment('va')">
+                            <input type="radio" name="paytest" id="paytest_va">
+                            <label for="paytest_va">
+                                <i class="fa-solid fa-building-columns"></i>
+                                Virtual Account Bank
+                            </label>
+                        </div>
+                        <!-- BANK LIST -->
+                        <div id="test-va-area" class="va-banks-list hidden">
+                            <label class="bank-item" onclick="showTestVA('BCA','8801 1111 2222 3333')">
+                                <input type="radio" name="banktest"> Bank BCA
+                            </label>
+                            <label class="bank-item" onclick="showTestVA('Mandiri','9001 4444 5555 6666')">
+                                <input type="radio" name="banktest"> Bank Mandiri
+                            </label>
+                            <label class="bank-item" onclick="showTestVA('BNI','8271 7777 8888 9999')">
+                                <input type="radio" name="banktest"> Bank BNI
+                            </label>
+                            <label class="bank-item" onclick="showTestVA('BRI','1022 0000 1111 2222')">
+                                <input type="radio" name="banktest"> Bank BRI
+                            </label>
+                            <div id="test-va-display" class="hidden">
+                                <p>Nomor VA <span id="test-bank"></span>:</p>
+                                <span class="va-number" id="test-va-number"></span>
+                                <button class="copy-btn" onclick="alert('Nomor rekening disalin!')"><i
+                                        class="fa-regular fa-copy"></i> Salin Kode</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TOTAL -->
+                    <div class="payment-summary">
+                        <p>Total Bayar: <strong id="test-price"></strong></p>
+                    </div>
+                    <button class="btn-apply" onclick="goTestStep(4)">Konfirmasi & Bayar</button>
+                    <button class="btn-text-cancel" onclick="goTestStep(2)">Kembali</button>
+                </div>
+
+                <!-- STEP 5 SUCCESS TEST-->
+                <div id="test-step-4" class="hidden success-state">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h3>Pembayaran Berhasil!</h3>
+                    <p>Jadwal tes Anda telah tersimpan.</p>
+                    <button class="btn-apply" onclick="finishTestOrder()">Tutup</button>
+                </div>
+            </div>
+
+// ========== PENGAJUAN TES ==========
+        let selectedTest = "";
+        let selectedTestPrice = 0;
+        let selectedTestTime = "";
+        let selectedHospital = "";
+
+        function showServiceMenu() {
+            document.getElementById('section-services').classList.add('hidden')
+            document.getElementById('section-service-type').classList.remove('hidden')
+        }
+
+        function backHome() {
+            document.getElementById('section-services').classList.remove('hidden')
+            document.getElementById('section-service-type').classList.add('hidden')
+            document.getElementById('section-booking').classList.add('hidden')
+            document.getElementById('section-test').classList.add('hidden')
+        }
+
+        function startConsultation() {
+            document.getElementById('section-service-type').classList.add('hidden')
+            document.getElementById('section-booking').classList.remove('hidden')
+            document.getElementById('step-0').classList.remove('hidden')
+        }
+
+        function startTestFlow() {
+            document.getElementById('section-service-type').classList.add('hidden')
+            document.getElementById('section-test').classList.remove('hidden')
+        }
+
+        function selectMethod(method) {
+            selectedMethodType = method
+            document.getElementById('selected-method-label').innerText = "Metode: " + method
+            goToStep(1)
+        }
+
+        function selectTime(time, btn) {
+            selectedTimeValue = time
+            document.querySelectorAll('.time-slot')
+                .forEach(b => b.classList.remove('selected'))
+            btn.classList.add('selected')
+        }
+
+        function goTestStep(n) {
+            // VALIDASI BIAR TIDAK LONCAT STEP
+            if (n === 1 && !selectedTest) {
+                alert("Silakan pilih jenis tes terlebih dahulu!")
+                return
+            }
+            if (n === 2 && !selectedHospital) {
+                alert("Silakan pilih rumah sakit terlebih dahulu!")
+                return
+            }
+            if (n === 3 && !selectedTestTime) {
+                alert("Silakan pilih jam kedatangan terlebih dahulu!")
+                return
+            }
+            // SEMBUNYIKAN SEMUA STEP
+            [0, 1, 2, 3, 4].forEach(i => {
+                const el = document.getElementById('test-step-' + i)
+                if (el) el.classList.add('hidden')
+            })
+            // TAMPILKAN STEP AKTIF
+            const activeStep = document.getElementById('test-step-' + n)
+            if (activeStep) activeStep.classList.remove('hidden')
+            // UPDATE PROGRESS STEPPER
+            document.querySelectorAll('#section-test .step-item')
+                .forEach((item, index) => {
+                    item.classList.toggle('active', index <= n)
+                })
+        }
+
+        function selectTest(test) {
+            selectedTest = test
+            // SET HARGA DINAMIS
+            if (test === "Kultur") selectedTestPrice = 200000
+            if (test === "ZN") selectedTestPrice = 120000
+            if (test === "TCM") selectedTestPrice = 300000
+            // tampilkan harga ke UI
+            document.getElementById('test-price').innerText =
+                "Rp " + selectedTestPrice.toLocaleString('id-ID')
+            goTestStep(1)
+
+        }
+
+        function selectTestTime(time, btn) {
+            selectedTestTime = time
+            document.querySelectorAll('#section-test .time-slot')
+                .forEach(b => b.classList.remove('selected'))
+            btn.classList.add('selected')
+        }
+
+        function selectHospital(hospital) {
+            selectedHospital = hospital
+            goTestStep(2)
+        }
+
+        function selectTestPayment(method) {
+            document.getElementById('test-qris-area').classList.add('hidden')
+            document.getElementById('test-va-area').classList.add('hidden')
+            document.getElementById('test-va-display').classList.add('hidden')
+            if (method === 'qris') {
+                document.getElementById('test-qris-area').classList.remove('hidden')
+                document.getElementById('paytest_qris').checked = true
+            }
+            if (method === 'va') {
+                document.getElementById('test-va-area').classList.remove('hidden')
+                document.getElementById('paytest_va').checked = true
+            }
+        }
+
+        function showTestVA(bank, number) {
+            document.getElementById('test-va-display').classList.remove('hidden')
+            document.getElementById('test-bank').innerText = bank
+            document.getElementById('test-va-number').innerText = number
+        }
+
+        function finishTestOrder() {
+            const tbody = document.getElementById('history-data')
+            const today = new Date().toLocaleDateString('id-ID', {
+                day: 'numeric', month: 'short', year: 'numeric'
+            })
+            const row = `
+            <tr>
+                <td></td>
+                <td>${selectedHospital}</td>
+                <td>Tes ${selectedTest}</td>
+                <td>${today}</td>
+                <td>Rp ${selectedTestPrice.toLocaleString('id-ID')}</td>
+                <td><span class="status-pending">Belum Terlaksana</span></td>
+            </tr>`
+            tbody.insertAdjacentHTML('afterbegin', row)
+            updateTableNumbers()
+            backHome()
+        }
+
+        function finishOrder() {
+            const tbody = document.getElementById('history-data')
+            const today = new Date().toLocaleDateString('id-ID')
+            const row = `
+            <tr>
+                <td></td>
+                <td>Klinik TBC-Care</td>
+                <td>Konsultasi ${selectedMethodType}</td>
+                <td>${today}</td>
+                <td>Rp150.000</td>
+                <td><span class="status-pending">Belum Terlaksana</span></td>
+            </tr>`
+            tbody.insertAdjacentHTML('afterbegin', row)
+            updateTableNumbers()
+            backHome()
+        }
+
+        function updateTableNumbers() {
+            const rows = document.querySelectorAll('#history-data tr')
+            rows.forEach((row, i) => {
+                if (row.cells[0]) row.cells[0].innerText = i + 1
+            })
+        }

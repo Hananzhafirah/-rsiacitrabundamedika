@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TBC-Care | Solusi Terpadu Penanggulangan TBC</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style1.css" />
+    <link rel="stylesheet" href="styleheader.css" />
+    <link rel="stylesheet" href="style-booking.css" />
+
+    <style>
+        /* --- Tambahan CSS untuk Tampilan VA & Status --- */
+        #va-display-box {
+            margin-top: 15px;
+            padding: 20px;
+            background: #f0f7ff;
+            border: 2px dashed #053f5c;
+            border-radius: 12px;
+            text-align: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .va-number {
+            font-size: 22px;
+            font-weight: bold;
+            color: #053f5c;
+            letter-spacing: 2px;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 10px 0;
+            display: block;
+        }
+
+        .status-completed {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: #053f5c;
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+    /* Styling Kotak Status */
+.status-box {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    text-align: center;
+    width: 90px; /* Menyamakan lebar kotak */
+    color: white; /* Tulisan putih agar kontras */
+    letter-spacing: 0.5px;
+}
+
+/* Variasi Warna sesuai Permintaan */
+.bg-red { 
+    background-color: #e74c3c; /* Merah untuk Waspada */
+    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.2);
+}
+
+.bg-green { 
+    background-color: #27ae60; /* Hijau untuk Aman */
+    box-shadow: 0 2px 4px rgba(39, 174, 96, 0.2);
+}
+
+.bg-orange { 
+    background-color: #f39c12; /* Orange untuk Kritis */
+    box-shadow: 0 2px 4px rgba(243, 156, 18, 0.2);
+}
+
+/* Hover Effect pada baris tabel */
+tr:hover {
+    background-color: #f8fafc;
+}
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="logo.jpeg" alt="Logo TBC" class="nav-logo" style="height:50px;">
+            </div>
+            <div class="nav-links">
+                <a href="LPumum.html" class="nav-item">Beranda</a>
+                <a href="Untitled-1.html" class="nav-item">Edukasi</a>
+                <button class="btn-login" onclick="location.href='register.html'">Daftar</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+      <div class="charts-row" style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+    
+    <!-- Chart Kiri: Tingkat Gejala -->
+    <div class="stat-card" style="flex: 1; min-width: 300px; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
+        <h3 style="color: var(--primary-color); margin-bottom: 5px;">Proporsi Tingkat Gejala</h3>
+        <p style="font-size: 12px; color: #666; margin-bottom: 20px;">Berdasarkan hasil skrining awal di lapangan</p>
+        <div style="height: 300px; position: relative;">
+            <canvas id="suspectChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Chart Kanan: Hasil Lab -->
+    <div class="stat-card" style="flex: 1; min-width: 300px; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
+        <h3 style="color: var(--primary-color); margin-bottom: 25px;">Hasil Pemeriksaan Lab</h3>
+        <div style="height: 300px; position: relative;">
+            <canvas id="testResultChart"></canvas>
+        </div>
+    </div>
+
+</div>
+</section>
+                <div class="stat-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h1 style="font-size: 3rem; color: #053f5c;">124</h1>
+                    <p>Total Pasien Terkonfirmasi</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h2 class="section-title">Input Data Baru</h2>
+            <div class="tab-container">
+                <button class="tab-btn active" onclick="switchTab(event, 'formSuspect')">Pendataan Suspect</button>
+                <button class="tab-btn" onclick="switchTab(event, 'formPasien')">Pendataan Pasien</button>
+            </div>
+
+            <div id="formSuspect" class="tab-content active">
+                <div class="card border-suspect">
+                    <h3><i class="fa-solid fa-magnifying-glass"></i> Skrining Suspect Baru</h3>
+                    <form class="kapitu-form">
+                        <div class="form-row">
+                            <div class="form-group"><label>Nama Lengkap</label><input type="text" placeholder="Nama Suspect"></div>
+                            <div class="form-group"><label>NIK</label><input type="text" placeholder="NIK"></div>
+                        </div>
+                        <div class="form-group"><label>Alamat Lengkap</label><textarea placeholder="Alamat"></textarea></div>
+                        <div class="form-row">
+                            <div class="form-group"><label>Gejala Utama</label><input type="text" placeholder="Contoh: Batuk >2 minggu"></div>
+                            <div class="form-group">
+                                <label>Tingkat Gejala (Notes)</label>
+                                <select>
+                                    <option value="green">Hijau (Stabil)</option>
+                                    <option value="orange">Orange (Waspada)</option>
+                                    <option value="red">Merah (Kritis)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-save">Simpan Data Suspect</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="formPasien" class="tab-content">
+                <div class="card border-pasien">
+                    <h3><i class="fa-solid fa-hospital-user"></i> Registrasi Pasien Positif</h3>
+                    <form class="kapitu-form">
+                        <div class="form-row">
+                            <div class="form-group"><label>Nama Pasien</label><input type="text" placeholder="Nama Pasien"></div>
+                            <div class="form-group"><label>NIK</label><input type="text" placeholder="NIK"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label>Lokasi Faskes/Mitra</label><input type="text" placeholder="RS/Puskesmas"></div>
+                            <div class="form-group"><label>Kecamatan</label><input type="text" placeholder="Kecamatan"></div>
+                        </div>
+                        <div class="form-group"><label>Identitas Pendamping (PMO)</label><input type="text" placeholder="Nama Pengawas Menelan Obat"></div>
+                        <button type="submit" class="btn-save btn-pasien">Simpan Data Pasien</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <div class="table-header">
+                <h2 class="section-title">Database Seluruh Warga</h2>
+                <div class="search-box">
+                    <i class="fa fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Cari nama atau NIK...">
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Kecamatan</th>
+                            <th>Tipe Data</th>
+                            <th>Status/Indikator</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Budi Santoso</td>
+                            <td>Beji</td>
+                            <td><span class="badge-pasien">Pasien</span></td>
+                            <td><span class="indicator-dot bg-red"></span> Kritis</td>
+                            <td><button class="btn-detail" onclick="openModal('Budi')">Detail</button></td>
+                        </tr>
+                        <tr>
+                            <td>Siti Aminah</td>
+                            <td>Sukmajaya</td>
+                            <td><span class="badge-suspect">Suspect</span></td>
+                            <td><span class="indicator-dot bg-orange"></span> Waspada</td>
+                            <td><button class="btn-detail" onclick="openModal('Siti')">Detail</button></td>
+                        </tr>
+                        <tr>
+                            <td>farida</td>
+                            <td>depok</td>
+                            <td><span class="badge-suspect">Suspect</span></td>
+                            <td><span class="indicator-dot bg-green"></span> aman</td>
+                            <td><button class="btn-detail" onclick="openModal('Siti')">Detail</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script>
+        function switchTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+
+    // Data untuk Chart Kondisi Suspect
+const ctxSuspect = document.getElementById('suspectChart');
+new Chart(ctxSuspect, {
+    type: 'pie',
+    data: {
+        labels: ['Hijau (Stabil)', 'Orange (Waspada)', 'Merah (Kritis)'],
+        datasets: [{
+            data: [150, 85, 30], // Contoh data input dari form
+            backgroundColor: [
+                '#27ae60', // Hijau (Stabil)
+                '#f69e3a', // Orange (Waspada)
+                '#e74c3c'  // Merah (Kritis)
+            ],
+            borderWidth: 2,
+            borderColor: '#ffffff'
+        }]
+    },
+    plugins: [ChartDataLabels],
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: { padding: 20, font: { size: 13 } }
+            },
+            datalabels: {
+                color: '#fff',
+                font: { weight: 'bold', size: 14 },
+                formatter: (value, context) => {
+                    const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                    const percentage = ((value / total) * 100).toFixed(1);
+                    return percentage + '%';
+                }
+            }
+        }
+    }
+});
+
+// Data untuk Chart Hasil Tes (+/-)
+const ctxResult = document.getElementById('testResultChart');
+new Chart(ctxResult, {
+    type: 'doughnut', // Menggunakan Doughnut agar lebih variatif
+    data: {
+        labels: ['Positif (+)', 'Negatif (-)'],
+        datasets: [{
+            data: [42, 158],
+            backgroundColor: ['#dc2626', '#27ae60'],
+            hoverOffset: 10
+        }]
+    },
+    plugins: [ChartDataLabels],
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: { padding: 15, font: { size: 12 } }
+            },
+            datalabels: {
+                color: '#fff',
+                font: { weight: 'bold', size: 14 },
+                formatter: (value, context) => {
+                    const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                    return ((value / total) * 100).toFixed(1) + '%';
+                }
+            }
+        }
+    }
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeduliTBDepok - Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Reset Dasar --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        /* --- Warna Variabel --- */
+        :root {
+            --primary-blue: #0e3048; /* Warna biru gelap header */
+            --accent-yellow: #fbb03b; /* Warna kuning logo */
+            --top-bar-bg: #092133; /* Warna bar paling atas */
+        }
+
+        /* --- Top Bar (Kabar UGM, dll) --- */
+        .top-bar {
+            background-color: var(--top-bar-bg);
+            color: #ccc;
+            padding: 10px 50px;
+            font-size: 13px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .top-bar a:hover {
+            color: #fff;
+        }
+
+        /* --- Navigation Bar --- */
+        .navbar {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent-yellow); /* Garis kuning bawah header */
+        }
+
+        /* Logo Area */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent-yellow);
+            font-style: italic;
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+        
+        .brand-logo i {
+            font-size: 24px;
+            margin-bottom: -5px;
+        }
+
+        .brand-sub {
+            font-size: 10px;
+            color: #ddd;
+            font-weight: normal;
+            font-style: normal;
+            letter-spacing: 0.5px;
+        }
+
+        /* Menu Links */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            margin-left: -100px; /* Sedikit geser ke kiri agar center */
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        /* Right Actions (Search & Login) */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .login-btn {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- Hero Slider Section --- */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Tinggi banner */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* Gambar Background (Gedung UGM) */
+        .hero-slide {
+            width: 90%; /* Tidak full width seperti gambar asli */
+            height: 100%;
+            background: linear-gradient(rgba(14, 48, 72, 0.7), rgba(14, 48, 72, 0.3)), 
+                        url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Gedung_Pusat_UGM_Yogyakarta.jpg/1200px-Gedung_Pusat_UGM_Yogyakarta.jpg'); 
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 80px; /* Padding teks dari kiri */
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            color: #e0e0e0;
+        }
+
+        .cta-button {
+            background-color: #e6e6e6;
+            color: #333;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #fff;
+        }
+
+        /* Navigasi Slider (Arrows) */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: var(--accent-yellow);
+            font-size: 3rem;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        .slider-arrow:hover {
+            opacity: 1;
+        }
+
+        .prev { left: 20px; }
+        .next { right: 20px; }
+
+        /* Indikator Dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border: 2px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: var(--accent-yellow);
+            border-color: var(--accent-yellow);
+        }
+
+        /* --- Footer Toast (Guest Access) --- */
+        .guest-toast {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background-color: #faebd7; /* Warna krem muda */
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #333;
+            border-top-left-radius: 5px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- Side Tab (+0) --- */
+        .side-tab {
+            position: fixed;
+            top: 30%;
+            right: 0;
+            background-color: #eee;
+            padding: 15px 10px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            font-weight: bold;
+            color: #555;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        /* Responsif Sederhana */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 15px; padding: 20px; }
+            .nav-links { margin-left: 0; flex-wrap: wrap; justify-content: center; }
+            .hero-slide { width: 100%; border-radius: 0; padding-left: 20px; }
+            .hero-text h1 { font-size: 2rem; }
+            .top-bar { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="#">Kabar UGM</a>
+        <a href="#">Koran UGM</a>
+        <a href="#">Simaster</a>
+        <a href="#">Webmail</a>
+    </div>
+
+    <nav class="navbar">
+        <div class="brand">
+            <div class="brand-logo">
+                <i class="fas fa-graduation-cap"></i>
+                eLOK
+                <span class="brand-sub">e-Learning: Open for Knowledge Sharing</span>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">Help</a>
+            <a href="#">About</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="#" style="color:white;"><i class="fas fa-search"></i></a>
+            <a href="#" class="login-btn">
+                Log in <i class="fas fa-sign-in-alt"></i>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero-container">
+        <div class="hero-slide">
+            
+            <div class="hero-text">
+                <h1>Selamat datang di eLOK</h1>
+                <p>eLOK adalah sebuah sistem elearning yang digunakan di<br>Universitas Gadjah Mada</p>
+                <a href="#" class="cta-button">Dashboard</a>
+            </div>
+
+            <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
+
+            <div class="slider-dots">
+                <div class="dot"></div>
+                <div class="dot active"></div>
+                <div class="dot"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="side-tab">
+        +0
+    </div>
+
+    <div class="guest-toast">
+        <i class="far fa-user-circle"></i>
+        You are currently using guest access
+    </div>
+
+</body>
+</html>
